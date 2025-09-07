@@ -108,7 +108,7 @@ export const CompassLoader = () => {
                 <div className="text-center">
                     <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Finding Your Next Adventure</h3>
                     <div className="flex items-center space-x-1">
-                        <span className="text-gray-600 dark:text-gray-400">Loading travel guide(s)</span>
+                        <span className="text-gray-600 dark:text-gray-400">Give Camptrek a minute </span>
                         <div className="flex space-x-1">
                             <div className="w-1 h-1 bg-[#ED1C24] rounded-full animate-bounce"></div>
                             <div className="w-1 h-1 bg-[#ED1C24] rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
@@ -140,7 +140,7 @@ export const PlaneLoader = () => {
                 
                 <div className="text-center">
                     <h3 className="text-xl font-bold mb-2">Taking Off...</h3>
-                    <p className="text-blue-100">Preparing your travel guides</p>
+                    <p className="text-blue-100">Preparing </p>
                 </div>
             </div>
             
