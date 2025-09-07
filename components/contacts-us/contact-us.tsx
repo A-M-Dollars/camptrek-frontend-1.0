@@ -55,8 +55,8 @@ export default function ContactUsPage() {
             </svg>
             <div>
               <p className="font-semibold">Address</p>
-              <p>Ring Road-Westlands</p>
-              <p>Nairobi, Kenya</p>
+              <p>Ring Road, Commercial Centre</p>
+              <p>Westlands, Nairobi, Kenya</p>
             </div>
           </div>
         </div>
