@@ -35,7 +35,7 @@ export default function ContactUsPage() {
             </svg>
             <div>
               <p className="font-semibold">Email</p>
-              <p>contact@company.com</p>
+              <p>info@camptreksafaris.com</p>
             </div>
           </div>
 
@@ -45,7 +45,7 @@ export default function ContactUsPage() {
             </svg>
             <div>
               <p className="font-semibold">Phone</p>
-              <p>+1 (555) 123-4567</p>
+              <p>(+254)-720-938-799</p>
             </div>
           </div>
 
@@ -55,8 +55,8 @@ export default function ContactUsPage() {
             </svg>
             <div>
               <p className="font-semibold">Address</p>
-              <p>123 Business St, Suite 100</p>
-              <p>City, State 12345</p>
+              <p>Ring Road-Westlands</p>
+              <p>Nairobi, Kenya</p>
             </div>
           </div>
         </div>
