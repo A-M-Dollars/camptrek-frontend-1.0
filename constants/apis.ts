@@ -3,7 +3,7 @@ import axios from "axios";
 
 
 export const baseInstance = axios.create({
-    baseURL: "http://localhost:8000"
+    baseURL: "https://tours-backend-msss.onrender.com/docs"
 })
 
 baseInstance.interceptors.request.use(
