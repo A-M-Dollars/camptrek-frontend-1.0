@@ -11,7 +11,7 @@ import FilterBarSection from '@/components/all_safaris/filter-bar-section/filter
 import { useFilterStore } from '@/store/filterstore'
 import { extractFilterOptions } from '@/constants/extracthelper'
 import { useUserStore } from '@/store/userstore'
-import LoginButton from '@/components/global/bars/loginbutton'
+import {CompassLoader} from '@/components/about-us/travel-guides/loaders/loaders'
 
 
 const SafarisPage = () => {
@@ -120,8 +120,9 @@ const SafarisPage = () => {
   if (error) {
     return (
       <div className='text-red-500 p-4'>
-        <h2>Error loading safaris</h2>
-        <p>{error?.message || 'Unknown error occurred'}</p>
+        {/* <h2>Error loading safaris</h2>
+        <p>{error?.message || 'Unknown error occurred'}</p> */}
+        <CompassLoader/>
       </div>
     )
   }
