@@ -3,7 +3,7 @@ import axios from "axios";
 
 
 export const baseInstance = axios.create({
-    baseURL: "https://tours-backend-msss.onrender.com/docs"
+    baseURL: process.env.NEXT_PUBLIC_BACKEND_URL
 })
 
 baseInstance.interceptors.request.use(
