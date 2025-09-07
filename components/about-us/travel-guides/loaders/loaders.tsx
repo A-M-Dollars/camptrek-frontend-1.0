@@ -106,7 +106,7 @@ export const CompassLoader = () => {
                 </div>
                 
                 <div className="text-center">
-                    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Finding Your Next Adventure</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Finding it...</h3>
                     <div className="flex items-center space-x-1">
                         <span className="text-gray-600 dark:text-gray-400">Give Camptrek a minute </span>
                         <div className="flex space-x-1">
