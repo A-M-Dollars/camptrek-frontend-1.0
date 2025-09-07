@@ -88,7 +88,7 @@ const LoginButton = () => {
             flex flex-row items-center gap-2 text-black  bg-white w-[200px]
             cursor-pointer xl:ml-[50%] h-[45px] justify-center uppercase' 
             onClick={handleSignin}>
-            {personIcon} Travel With Us
+            {personIcon} GET STARTED
         </motion.button>
     )
 }

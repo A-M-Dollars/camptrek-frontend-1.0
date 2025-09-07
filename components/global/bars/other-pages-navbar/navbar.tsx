@@ -138,7 +138,7 @@ function Navbar() {
 
             {/* Mobile Login Section */}
             <div className='pt-4 border-t border-gray-200'>
-              <div className='flex ml-[-35%]'>
+              <div className='flex ml-[-8%] mb-[5%]'>
                 <Loginbutton />
               </div>
             </div>

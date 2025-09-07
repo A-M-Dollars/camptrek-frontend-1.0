@@ -183,11 +183,11 @@ function Navbar() {
             >
               CONTACTS
             </Link>
-            {/* Mobile Login Button */}
-            <div className='pt-4 border-t border-gray-700 ml-[-35%]'>
+          </div>
+           {/* Mobile Login Button */}
+            <div className='pt-4 border-t border-gray-700 ml-[5%] mb-[5%]'>
               <Loginbutton />
             </div>
-          </div>
         </motion.div>
       </motion.nav>
 
