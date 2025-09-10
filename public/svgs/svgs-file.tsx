@@ -146,3 +146,16 @@ export const readmore = <svg width="10" height="10" viewBox="0 0 14 14" fill="no
         <path d="M13.5 8V12.5C13.5 12.7652 13.3946 13.0196 13.2071 13.2071C13.0196 13.3946 12.7652 13.5 12.5 13.5H1.5C1.23478 13.5 0.98043 13.3946 0.792893 13.2071C0.605357 13.0196 0.5 12.7652 0.5 12.5V1.5C0.5 1.23478 0.605357 0.98043 0.792893 0.792893C0.98043 0.605357 1.23478 0.5 1.5 0.5H6" stroke="#ED1C24" strokeLinecap="round" strokeLinejoin="round" />
         <path d="M10 0.5H13.5V4" stroke="#ED1C24" strokeLinecap="round" strokeLinejoin="round" /><path d="M13.5 0.5L7 7" stroke="#ED1C24" strokeLinecap="round" strokeLinejoin="round" />
     </g> <defs><clipPath id="clip0_573_198"><rect width="14" height="14" fill="white" /></clipPath></defs></svg>
+
+
+export const arrowButton = <svg width="35" height="35" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clipPath="url(#clip0_1545_9993)">
+<path d="M1.25 7H14.25" stroke="#fff" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M10.75 10.5L14.25 7L10.75 3.5" stroke="#fff" strokeLinecap="round" strokeLinejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_1545_9993">
+<rect width="14" height="14" fill="white" transform="translate(0.75)"/>
+</clipPath>
+</defs>
+</svg>

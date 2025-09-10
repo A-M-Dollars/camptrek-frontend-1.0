@@ -8,7 +8,7 @@ import CustomCard from '../../components/landing/custom-features/custom-card'
 import { baseInstance } from '@/constants/apis'
 import { useParams } from 'next/navigation'
 import { useQuery } from '@tanstack/react-query'
-import React from 'react'
+import React, { useRef } from 'react'
 import { Itinerary } from '@/constants/itinerary'
 
 const Landing = () => {
@@ -26,13 +26,18 @@ const Landing = () => {
     gcTime: 1000 * 60 * 35
   })
 
+  const aboutRef = useRef<HTMLDivElement>(null)
+
+  const scrollToAbout = () => {
+    aboutRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
 
   return (
-    <div>
-      <Herosection />
+    <div className='overflow-x-hidden'>
+      <Herosection scrollToAbout={() => aboutRef.current?.scrollIntoView({ behavior: "smooth" })}/>
       {/* everything below is for the tour section */}
-      <div className="overflow-x-hidden xl:brightness-100 bg-[black] text-white pb-10 px-4 py-5 xl:py-10">
+      <div  ref={aboutRef} className="overflow-x-hidden xl:brightness-100 bg-[black] text-white pb-10 px-4 py-5 xl:py-10">
         <div className="ml-[15px] xl:ml-[55px]">
           <div className="mb-10 xl:ml-10">
             <h1 className="font-semibold text-[#FD6D0D] text-[32px]">POPULAR SAFARI ITINERARIES</h1>
