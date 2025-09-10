@@ -32,37 +32,33 @@ const Landing = () => {
     <div>
       <Herosection />
       {/* everything below is for the tour section */}
-      <div>
-        {
-          tours?.itineraries && tours.itineraries.length > 0 ? (
-            tours.itineraries.map((tours: Itinerary) => (
-              <div  key={tours.id} className="ovwerflow-x-hidden xl:brightness-70 bg-black text-white pb-10 px-4 py-5 xl:py-10 ">
-                <div className="ml-[15px] xl:ml-[55px]">
-                  <div className='mb-10 xl:ml-10'>
-                    <h1 className="font-semibold text-[32px]">POPULAR SAFARI ITINERARIES</h1>
-                    <div className="text-[14px] mt-4 font-light">
-                      <p>
-                        When you travel with us we will ensure you get the best seamless safari experience throughout your vacation.
-                        <br />
-                        You will not have to worry about overspending on your travel budget, hidden costs, or unreliable communication
-                        <br />
-                        that you might get from inexperienced tour operators.
-                      </p>
-                    </div>
-                  </div>
-                  <CustomCarousel >
-                    <CustomCard
-                      {...tours}
-                    />
-                  </CustomCarousel>
-                </div>
-              </div>
-            ))
-          ) : (
-            <div className='hidden'>Tours coming up </div>
-          )
-        }
+      <div className="overflow-x-hidden xl:brightness-100 bg-[black] text-white pb-10 px-4 py-5 xl:py-10">
+        <div className="ml-[15px] xl:ml-[55px]">
+          <div className="mb-10 xl:ml-10">
+            <h1 className="font-semibold text-[#FD6D0D] text-[32px]">POPULAR SAFARI ITINERARIES</h1>
+            <div className="text-[14px] mt-4 font-light">
+              <p>
+                When you travel with us we will ensure you get the best seamless safari experience throughout your vacation.
+                <br />
+                You will not have to worry about overspending on your travel budget, hidden costs, or unreliable communication
+                <br />
+                that you might get from inexperienced tour operators.
+              </p>
+            </div>
+          </div>
+
+          <CustomCarousel>
+            {tours?.itineraries && tours.itineraries.length > 0 ? (
+              tours.itineraries.map((tour: Itinerary) => (
+                <CustomCard key={tour.id} {...tour} />
+              ))
+            ) : (
+              <div className="hidden">Tours coming up</div>
+            )}
+          </CustomCarousel>
+        </div>
       </div>
+
       {/* it ends here */}
       <Aboutus />
       <Partners />

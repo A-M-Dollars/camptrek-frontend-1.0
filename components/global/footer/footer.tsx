@@ -13,7 +13,7 @@ function Footer() {
                     {/* Company Info */}
                     <div className='md:col-span-2 xl:col-span-1'>
                         <div className='mb-6'>
-                            <h1 className='text-[#ED1C24] text-2xl lg:text-3xl xl:text-[32px] font-black leading-tight'>
+                            <h1 className='text-[#FD6D0D] text-2xl lg:text-3xl xl:text-[32px] font-black leading-tight'>
                                 CAMPTREK SAFARIS
                             </h1>
                             <h2 className='text-lg lg:text-xl mt-2'>AFRICA IS A FEELING</h2>
@@ -36,7 +36,7 @@ function Footer() {
 
                     {/* Destinations */}
                     <div className='flex flex-col'>
-                        <h3 className='text-[#ED1C24] mb-4 font-semibold text-base'>Destinations</h3>
+                        <h3 className='text-[#FD6D0D] mb-4 font-semibold text-base'>Destinations</h3>
                         <div className='space-y-2'>
                             <Link href={'#'} className='block hover:text-white transition-colors duration-200'>
                                 Combined Kenyan and Tanzanian Safaris
@@ -52,7 +52,7 @@ function Footer() {
 
                     {/* Quick Links */}
                     <div className='flex flex-col'>
-                        <h3 className='text-[#ED1C24] mb-4 font-semibold text-base'>Quick Links</h3>
+                        <h3 className='text-[#FD6D0D] mb-4 font-semibold text-base'>Quick Links</h3>
                         <div className='space-y-2'>
                             <Link href={'#'} className='block hover:text-white transition-colors duration-200'>
                                 Home
@@ -74,7 +74,7 @@ function Footer() {
 
                     {/* Contact Us */}
                     <div className='flex flex-col'>
-                        <h3 className='text-[#ED1C24] mb-4 font-semibold text-base'>Contact Us</h3>
+                        <h3 className='text-[#FD6D0D] mb-4 font-semibold text-base'>Contact Us</h3>
                         <div className='space-y-2'>
                             <Link href={'tel:+254720938799'} className='block hover:text-white transition-colors duration-200'>
                                 (+254)-720-938-799

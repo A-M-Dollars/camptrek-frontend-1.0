@@ -37,7 +37,7 @@ function Navbar() {
   return (
     <>
       <motion.nav
-        className='bg-black fixed top-0 left-0 w-full z-50 text-white shadow-lg xl:place-items-center'
+        className='bg-[#FD6D0D] fixed top-0 left-0 w-full z-50 text-white shadow-lg xl:place-items-center'
         initial={{ y: 0 }}
         animate={{
           y: visible ? 0 : -100,

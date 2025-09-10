@@ -18,7 +18,7 @@ const CustomCard = ({ images, title, location, duration, price, discount, id }: 
             <div className="relative bg-cover bg-center h-[258px] w-full"
                 style={{ backgroundImage: `url(${images[0].image_url})` }}>
                 <div className="absolute top-0 right-0 m-2">
-                    <p className="bg-[#ED1C24] text-white text-sm px-3 py-1">
+                    <p className="bg-[#FD6D0D] text-white text-sm px-3 py-1">
                         {discount}% OFF
                     </p>
                 </div>
@@ -45,7 +45,7 @@ const CustomCard = ({ images, title, location, duration, price, discount, id }: 
                     <p className='font-light text-[10px] xl:text-[12px]'>PER PERSON</p>
                 </div>
                 <div>
-                    <button onClick={handleClick} className='bg-[#ED1C24] font-light p-2 w-[150px] xl:w-[118px] xl:h-[39px] cursor-pointer'>BOOK NOW</button>
+                    <button onClick={handleClick} className='bg-[#FD6D0D] font-light p-2 w-[150px] xl:w-[118px] xl:h-[39px] cursor-pointer'>BOOK NOW</button>
                 </div>
             </div>
         </div>

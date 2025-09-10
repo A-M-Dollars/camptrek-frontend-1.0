@@ -6,7 +6,7 @@ function Partners() {
   return (
     <div className='xl:mt-15 xl:ml-5 ml-5 mt-15 mb-15'>
         <div className='mb-15 mr-2'>
-            <h1 className='font-semibold text-[32px] text-black'>OUR PARTNERS</h1>
+            <h1 className='font-semibold text-[32px] text-[#FD6D0D]'>OUR PARTNERS</h1>
             <p className='text-[12px] xl:text-[14px] mt-2 text-gray-600 font-light uppercase'>
                 At the heart of our unforgettable safari experiences are the strong relationships we&apos;ve built with trusted <br />
                 partners across Kenya, Tanzania, and Zanzibar.
