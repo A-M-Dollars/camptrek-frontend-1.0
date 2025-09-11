@@ -35,7 +35,7 @@ function Herosection({ scrollToAbout }: HeroProps) {
                             {arrowButton}
                         </div>
                     </div>
-                    <div className='mt-[80%] xl:mt-[45%] flex justify-end'>
+                    <div className='mt-[80%] xl:mt-[20%] xl:mb-12 flex justify-end'>
                         <div className=' w-[50%] xl:w-[15%] mr-10'>
                             <p className='mb-5 text-white text-[14px] xl:text-[18px]'>
                                 Explore, discover, and unwind in Africa
