@@ -23,7 +23,7 @@ function Herosection({ scrollToAbout }: HeroProps) {
                 />
 
                 {/* Content on top */}
-                <div className="relative z-10 mb-10  h-full text-black">
+                <div className="relative z-10 mb-10 xl:mb-0  h-full text-black">
                     <div className='grid grid-cols-5 place-items-center gap-2 
                     h-[70px] mt-15 xl:mt-20 bg-white xl:w-[35%] ml-2 mr-2 xl:mr-2 xl:ml-10 rounded'>
                         <img src={bannerPhoto.src} alt="bannerPhoto" className='col-span-1 h-15 ml-2 xl:ml-0 rounded xl:rounded-0 xl:w-[780px] xl:h-[70px]' />
@@ -35,7 +35,7 @@ function Herosection({ scrollToAbout }: HeroProps) {
                             {arrowButton}
                         </div>
                     </div>
-                    <div className='mt-[80%] xl:mt-[15%] flex justify-end'>
+                    <div className='mt-[80%] xl:mt-[45%] flex justify-end'>
                         <div className=' w-[50%] xl:w-[15%] mr-10'>
                             <p className='mb-5 text-white text-[14px] xl:text-[18px]'>
                                 Explore, discover, and unwind in Africa
@@ -43,7 +43,7 @@ function Herosection({ scrollToAbout }: HeroProps) {
                             <Link href={'/safaris'}>
                                 <button
                                     className='bg-[#FD6D0D] text-white cursor-pointer
-                                 h-[50px] xl:h-[70px] w-full mr-10 uppercase text-[12px] xl:text-[14px] rounded
+                                 h-[50px] xl:h-[60px] w-full mr-10 uppercase text-[12px] xl:text-[14px] rounded
                                 '>
                                     All Our Safari Packages
                                 </button>
