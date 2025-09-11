@@ -31,7 +31,7 @@ function Herosection({ scrollToAbout }: HeroProps) {
                             Introducing our popular safari packages
                         </p>
                         <div onClick={scrollToAbout} className='bg-[#FD6D0D] w-[60px] h-[50px] 
-                        flex place-items-center justify-center col-span-1 mr-2 rounded cursor-pointer'>
+                        flex place-items-center justify-center col-span-1 mr-2 xl:mr-0 rounded cursor-pointer'>
                             {arrowButton}
                         </div>
                     </div>
@@ -43,7 +43,7 @@ function Herosection({ scrollToAbout }: HeroProps) {
                             <Link href={'/safaris'}>
                                 <button
                                     className='bg-[#FD6D0D] text-white cursor-pointer
-                                 h-[50px] xl:h-[60px] w-full mr-10 uppercase text-[12px] xl:text-[14px] rounded
+                                 h-[50px] lg:h-[70px] w-full mr-10 uppercase text-[12px] lg:text-[14px] rounded
                                 '>
                                     All Our Safari Packages
                                 </button>
