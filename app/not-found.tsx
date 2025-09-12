@@ -21,7 +21,7 @@ function Custom404() {
             </a> */}
             <button
                 onClick={() => router.back()}
-                className="px-8 py-3 bg-primary text-white font-light text-[14px] uppercase"
+                className="px-8 w-full py-3 bg-[#FD6D0D] text-white font-light text-[14px] uppercase"
             >
                 Go Back
             </button>
