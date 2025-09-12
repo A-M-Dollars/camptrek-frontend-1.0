@@ -45,7 +45,7 @@ const CustomCard = ({ images, title, location, duration, price, discount, id }: 
                     <p className='font-light text-[10px] xl:text-[12px]'>PER PERSON</p>
                 </div>
                 <div>
-                    <button className='bg-[#FD6D0D] font-light p-2 w-[150px] xl:w-[118px] xl:h-[39px] cursor-pointer'>BOOK NOW</button>
+                    <button className='bg-[#FD6D0D] text-[12px] xl:text-case font-light p-2 w-[100px] xl:w-[118px] xl:h-[39px] cursor-pointer'>BOOK NOW</button>
                 </div>
             </div>
         </div>

@@ -22,7 +22,7 @@ const CustomCarousel: React.FC<CustomCarouselProps> = ({ children }) => {
       {/* Buttons */}
       <button
         onClick={scrollPrev}
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/50 rounded-full hover:bg-black/70"
+        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[#FD6D0D]/50 rounded-full hover:bg-[#FD6D0D]"
       >
         {previousButton}
       </button>
@@ -43,7 +43,7 @@ const CustomCarousel: React.FC<CustomCarouselProps> = ({ children }) => {
 
       <button
         onClick={scrollNext}
-        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/50 p-2 rounded-full hover:bg-black/70"
+        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[#FD6D0D]/50 rounded-full hover:bg-[#FD6D0D]"
       >
         {nextButton}
       </button>
