@@ -13,7 +13,6 @@ import { smile, sad } from '@/public/svgs/svgs-file'
 import { baseInstance } from '@/constants/apis';
 
 
-
 type TripCostFormProps = {
   safariPackageTitle: string;
   itineraryId: string;
@@ -150,7 +149,7 @@ const TripCostForm = ({ adultPrice, kidsPrice, costExcludes, costIncludes, safar
     <div>
       {!redirectUrl ? (
         <FormProvider {...methods}>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form>
             <div className='
             xl:grid xl:grid-cols-2 xl:gap-6
             '>
@@ -212,14 +211,14 @@ const TripCostForm = ({ adultPrice, kidsPrice, costExcludes, costIncludes, safar
                         </div>
                         <div className='middle mb-8' >
                           <div className='flex flex-row justify-between mb-2'>
-                            <p className='text-[12px] titlecase pl-1 opacity-50'>Adult Price</p>
+                            <p className='text-[12px] titlecase pl-1 opacity-50'>Price of {watched.numberOfAdults} Adult(s)</p>
                             <p className='text-[14px] font-semibold pr-1' >{newAdultPrice} USD</p>
                           </div>
                           <hr />
                         </div>
                         <div className='middle2 mb-8'>
                           <div className='flex flex-row justify-between mb-2'>
-                            <p className='text-[12px] titlecase pl-1 opacity-50'>Kids Price</p>
+                            <p className='text-[12px] titlecase pl-1 opacity-50'>Price of {watched.numberOfKids} Kid(s)</p>
                             <p className='text-[14px] font-semibold pr-1' >{newKidsPrice} USD</p>
                           </div>
                           <hr />
@@ -257,14 +256,23 @@ const TripCostForm = ({ adultPrice, kidsPrice, costExcludes, costIncludes, safar
                 </div>
               </div>
             </div>
-            <div className="flex justify-center">
+            <div className="flex gap-4 justify-center">
               <button
                 type="submit"
-                className="cursor-pointer bg-primary uppercase text-[12px] 
+                onSubmit={handleSubmit(onSubmit)}
+                className="cursor-pointer bg-blue-600 uppercase text-[12px] 
               text-white font-light w-[200px] h-[40px] items-center"
               >
-                Submit Form
+                Proceed to Pay
               </button>
+              <a href="/contacts-us">
+                <button
+                  type='button'
+                  className="cursor-pointer bg-[#FD6D0D] uppercase text-[12px] 
+              text-white font-light w-[170px] h-[40px] items-center"
+                >
+                  Send an enquiry
+                </button></a>
             </div>
           </form>
         </FormProvider>
