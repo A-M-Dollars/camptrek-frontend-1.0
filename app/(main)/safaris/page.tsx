@@ -134,7 +134,7 @@ const SafarisPage = () => {
   return (
     <div>
       {/* Filter section - will automatically use dynamic options */}
-      <div className='ads'>
+      <div className='ads mt-5 xl:mt-0'>
         <FilterBarSection />
       </div>
 
