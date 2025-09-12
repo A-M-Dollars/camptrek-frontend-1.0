@@ -19,16 +19,16 @@ function Footer() {
                             <h2 className='text-lg lg:text-xl mt-2'>AFRICA IS A FEELING</h2>
                         </div>
                         <div className='flex flex-row gap-4 items-center'>
-                            <Link href={'#'} className='hover:text-[#ED1C24] transition-colors duration-200'>
+                            <Link href="https://www.facebook.com/camptreksafaris" className='hover:text-[#ED1C24] transition-colors duration-200'>
                                 {Facebook}
                             </Link>
-                            <Link href={'#'} className='hover:text-[#ED1C24] transition-colors duration-200'>
+                            <Link href="ttps://www.instagram.com/camptrek_safaris" className='hover:text-[#ED1C24] transition-colors duration-200'>
                                 {Instagram}
                             </Link>
-                            <Link href={'#'} className='hover:text-[#ED1C24] transition-colors duration-200'>
+                            <Link href="https://x.com/SafariCamptrek" className='hover:text-[#ED1C24] transition-colors duration-200'>
                                 {Twitter}
                             </Link>
-                            <Link href={'#'} className='hover:text-[#ED1C24] transition-colors duration-200'>
+                            <Link href="https://www.linkedin.com/in/pappa-john-85b99a113" className='hover:text-[#ED1C24] transition-colors duration-200'>
                                 {LinkedIn}
                             </Link>
                         </div>
@@ -38,13 +38,13 @@ function Footer() {
                     <div className='flex flex-col'>
                         <h3 className='text-[#FD6D0D] mb-4 font-semibold text-base'>Destinations</h3>
                         <div className='space-y-2'>
-                            <Link href={'#'} className='block hover:text-white transition-colors duration-200'>
+                            <Link href={'/safaris'} className='block hover:text-white transition-colors duration-200'>
                                 Combined Kenyan and Tanzanian Safaris
                             </Link>
-                            <Link href={'#'} className='block hover:text-white transition-colors duration-200'>
+                            <Link href={'/safaris'} className='block hover:text-white transition-colors duration-200'>
                                 Kenyan Safaris
                             </Link>
-                            <Link href={'#'} className='block hover:text-white transition-colors duration-200'>
+                            <Link href={'/safaris'} className='block hover:text-white transition-colors duration-200'>
                                 Tanzanian Safaris
                             </Link>
                         </div>
