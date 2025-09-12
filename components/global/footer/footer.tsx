@@ -54,20 +54,20 @@ function Footer() {
                     <div className='flex flex-col'>
                         <h3 className='text-[#FD6D0D] mb-4 font-semibold text-base'>Quick Links</h3>
                         <div className='space-y-2'>
-                            <Link href={'#'} className='block hover:text-white transition-colors duration-200'>
+                            <Link href={'/'} className='block hover:text-white transition-colors duration-200'>
                                 Home
                             </Link>
-                            <Link href={'#'} className='block hover:text-white transition-colors duration-200'>
+                            {/* <Link href={'#'} className='block hover:text-white transition-colors duration-200'>
                                 Reviews
-                            </Link>
-                            <Link href={'#'} className='block hover:text-white transition-colors duration-200'>
+                            </Link> */}
+                            <Link href={'/about-us'} className='block hover:text-white transition-colors duration-200'>
                                 About Us
                             </Link>
-                            <Link href={'#'} className='block hover:text-white transition-colors duration-200'>
-                                Blog
+                            <Link href={'/blogs'} className='block hover:text-white transition-colors duration-200'>
+                                Travel Guides
                             </Link>
-                            <Link href={'#'} className='block hover:text-white transition-colors duration-200'>
-                                Account
+                            <Link href={'/contacts-us'} className='block hover:text-white transition-colors duration-200'>
+                                Contact Us
                             </Link>
                         </div>
                     </div>
