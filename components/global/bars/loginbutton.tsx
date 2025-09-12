@@ -86,7 +86,7 @@ const LoginButton = () => {
         <motion.button
             className='
             flex flex-row items-center gap-2 text-white  bg-blue-600 w-[200px]
-            cursor-pointer xl:ml-[50%] h-[45px] justify-center uppercase' 
+            cursor-pointer ml-[5%] xl:ml-[50%] h-[45px] justify-center uppercase' 
             onClick={handleSignin}>
             {personIcon} GET STARTED
         </motion.button>

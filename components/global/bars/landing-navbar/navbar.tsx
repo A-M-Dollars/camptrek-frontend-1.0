@@ -85,7 +85,7 @@ function Navbar() {
         </div>
 
         {/* Desktop Header - Only visible on large devices and above */}
-        <div className='hidden lg:flex lg:gap-50 items-center px-8 xl:px-20 h-20 xl:h-24'>
+        <div className='hidden lg:flex lg:gap-50 items-center px-8 xl:px-20 h-20 xl:h-18'>
           {/* Desktop Logo */}
           <div className='flex-shrink-0 xl:mr-20'>
             <Link href={'/'}>
@@ -138,7 +138,7 @@ function Navbar() {
 
         {/* Mobile Menu - Only visible on small and medium devices */}
         <motion.div
-          className={`lg:hidden bg-primary border-t border-gray-700 ${mobileMenuOpen ? 'block' : 'hidden'
+          className={`lg:hidden bg-[#FD6D0D] border-t border-white ${mobileMenuOpen ? 'block' : 'hidden'
             }`}
           initial={{ opacity: 0, height: 0 }}
           animate={{
@@ -185,7 +185,7 @@ function Navbar() {
             </Link>
           </div>
            {/* Mobile Login Button */}
-            <div className='pt-4 border-t border-gray-700 ml-[5%] mb-[5%]'>
+            <div className='pt-4 border-t border-white mb-[5%]'>
               <Loginbutton />
             </div>
         </motion.div>
