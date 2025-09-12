@@ -32,7 +32,7 @@ const ShowCaseCards = ({ id, discount, title, location, duration, price, images,
     }
 
     return (
-        <div className='border mt-4'>
+        <div onClick={handleClick} className='border mt-4 cursor-pointer'>
             <div className="relative bg-cover bg-center h-[200px] xl:h-[150px] w-full"
                 style={{ backgroundImage: `url(${images[0].image_url})` }}>
                 <div className="absolute top-0 right-0 m-2">
@@ -63,7 +63,7 @@ const ShowCaseCards = ({ id, discount, title, location, duration, price, images,
                     <p className='font-light text-[10px]'>PER PERSON</p>
                 </div>
                 <div>
-                    <button onClick={handleClick} className='bg-[#FD6D0D] text-white text-[10px] font-light p-2 w-[80px] h-[30px] cursor-pointer'>BOOK NOW</button>
+                    <button className='bg-[#FD6D0D] text-white text-[10px] font-light p-2 w-[80px] h-[30px] cursor-pointer'>BOOK NOW</button>
                 </div>
             </div>
         </div>
