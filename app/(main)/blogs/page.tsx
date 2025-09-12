@@ -83,7 +83,7 @@ const TravelGuides = () => {
                     </p>
                     <button
                         onClick={() => window.location.reload()}
-                        className="px-6 py-3 bg-[#ED1C24] text-white text-[12px] uppercase cursor-pointer w-[200px]"
+                        className="px-6 py-3 bg-[#FD6D0D] text-white text-[12px] uppercase cursor-pointer w-[200px]"
                     >
                         Refresh Page
                     </button>

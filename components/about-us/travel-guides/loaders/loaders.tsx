@@ -93,10 +93,10 @@ export const CompassLoader = () => {
                     <div className="absolute inset-0 border-4 border-gray-200 dark:border-gray-700 rounded-full"></div>
                     
                     {/* Rotating Compass Needle */}
-                    <div className="absolute inset-2 border-4 border-transparent border-t-[#ED1C24] border-[#ED1C24] rounded-full animate-spin" style={{animationDuration: '2s'}}></div>
+                    <div className="absolute inset-2 border-4 border-transparent border-t-[#FD6D0D] border-[#FD6D0D] rounded-full animate-spin" style={{animationDuration: '2s'}}></div>
                     
                     {/* Center Dot */}
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-red-600 rounded-full"></div>
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-[#FD6D0D] rounded-full"></div>
                     
                     {/* Cardinal Directions */}
                     <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs font-bold text-gray-600 dark:text-gray-400">N</div>
@@ -110,9 +110,9 @@ export const CompassLoader = () => {
                     <div className="flex items-center space-x-1">
                         <span className="text-gray-600 dark:text-gray-400">Give Camptrek a minute </span>
                         <div className="flex space-x-1">
-                            <div className="w-1 h-1 bg-[#ED1C24] rounded-full animate-bounce"></div>
-                            <div className="w-1 h-1 bg-[#ED1C24] rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                            <div className="w-1 h-1 bg-[#ED1C24] rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                            <div className="w-1 h-1 bg-[#FD6D0D] rounded-full animate-bounce"></div>
+                            <div className="w-1 h-1 bg-[#FD6D0D] rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                            <div className="w-1 h-1 bg-[#FD6D0D] rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
                         </div>
                     </div>
                 </div>
