@@ -114,7 +114,7 @@ const FilterBarSection = () => {
             
             {/* Currency Filter */}
             <div className='select currency'>
-                <label className="block font-regular text-[10px] text-center uppercase pb-2">Preferred Currency</label>
+                <label className="block font-regular text-[10px] text-center uppercase pb-2">Currency Calculator</label>
                 <select
                     value={currency}
                     onChange={(e) => setCurrency(e.target.value as any)}
@@ -131,8 +131,8 @@ const FilterBarSection = () => {
             <button
                 onClick={resetFilters}
                 className="
-                bg-black text-white font-light uppercase
-                text-[12px] h-[32px] w-full hover:bg-gray-800
+                bg-[#FD6D0D] text-white font-light uppercase
+                text-[12px] h-[32px] w-full hover:bg-blue-600
                 transition-colors duration-200 mt-[18px]"
             >
                 Reset filters

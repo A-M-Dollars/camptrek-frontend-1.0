@@ -26,10 +26,10 @@ export const TripItinerary = ({ safariData, onImageChange }: ItineraryProps) => 
         >
             {safariData.days.map((day) => (
                 <AccordionItem key={day.id} value={day.id}>
-                    <AccordionTrigger>
+                    <AccordionTrigger className='text-[12px]'>
                         Day {day.day_number}: {day.title}
                     </AccordionTrigger>
-                    <AccordionContent>{day.details}</AccordionContent>
+                    <AccordionContent className='text-[12px]'>{day.details}</AccordionContent>
                 </AccordionItem>
             ))}
         </Accordion>

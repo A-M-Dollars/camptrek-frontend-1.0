@@ -139,7 +139,7 @@ const SafarisPage = () => {
       </div>
 
       {/* Results section */}
-      <div className='alltours grid md:grid-cols-2 xl:grid-cols-5 gap-4 mb-5 ml-5 mr-5 xl:mr-0'>
+      <div className='alltours grid md:grid-cols-2 xl:grid-cols-5 gap-4 mb-5 ml-5 mr-5 xl:mr-5'>
         {filteredItineraries && filteredItineraries.length > 0 ? (
           filteredItineraries.map((itinerary: Itinerary) =>
             <ShowCaseCards key={itinerary.id} {...itinerary} />

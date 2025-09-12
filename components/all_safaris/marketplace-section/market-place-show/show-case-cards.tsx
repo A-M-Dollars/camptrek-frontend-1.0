@@ -37,7 +37,7 @@ const ShowCaseCards = ({ id, discount, title, location, duration, price, images,
                 style={{ backgroundImage: `url(${images[0].image_url})` }}>
                 <div className="absolute top-0 right-0 m-2">
                     {discount && discount > 0 && (
-                        <p className="bg-[#ED1C24] text-white px-3 py-1 text-[10px]">
+                        <p className="bg-[#FD6D0D] text-white px-3 py-1 text-[10px]">
                             {discount}% OFF
                         </p>
                     )}
@@ -63,7 +63,7 @@ const ShowCaseCards = ({ id, discount, title, location, duration, price, images,
                     <p className='font-light text-[10px]'>PER PERSON</p>
                 </div>
                 <div>
-                    <button onClick={handleClick} className='bg-primary text-white text-[10px] font-light p-2 w-[80px] h-[30px] cursor-pointer'>BOOK NOW</button>
+                    <button onClick={handleClick} className='bg-[#FD6D0D] text-white text-[10px] font-light p-2 w-[80px] h-[30px] cursor-pointer'>BOOK NOW</button>
                 </div>
             </div>
         </div>

@@ -242,15 +242,14 @@ const Individual = () => {
                 )
 
             case 'Trip Itinerary':
+                // Updated code with scrollable itinerary container
                 if (!activeImages || activeImages.length === 0) {
                     return (
-                        <div className='
-                        xl:grid xl:grid-cols-2 xl:gap-6 mb-10 place-items-center
-                        '>
-                            <div className='left w-full'>
+                        <div className='xl:grid xl:grid-cols-2 xl:gap-6 xl:items-start mb-10'>
+                            <div className='left w-full xl:sticky xl:top-4'>
                                 <TripItineraryCalltoAction />
                             </div>
-                            <div className='right w-full'>
+                            <div className='right w-full xl:max-h-[600px] xl:overflow-y-auto xl:pr-2'> {/* Added scrollable container */}
                                 <TripItineraryContainer
                                     onImageChange={setActiveImages}
                                     safari={individualPackage || {} as Itinerary}
@@ -262,10 +261,8 @@ const Individual = () => {
                     )
                 }
                 return (
-                    <div className='
-                    xl:grid xl:grid-cols-2 xl:gap-6 place-items-center mb-10
-                    '>
-                        <div className='left w-full'>
+                    <div className='xl:grid xl:grid-cols-2 xl:gap-6 xl:items-start mb-10'> {/* Added xl:items-start here too */}
+                        <div className='left w-full xl:sticky xl:top-4'> {/* Made images sticky */}
                             <div>
                                 {/* Main Content */}
                                 <div className="relative w-full h-[250px] md:h-[515px] xl:h-[515px] mb-1 overflow-hidden shadow-lg">
@@ -326,7 +323,7 @@ const Individual = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='right w-full'>
+                        <div className='right w-full xl:max-h-[600px] xl:overflow-y-auto xl:pr-2'> {/* Added scrollable container */}
                             <TripItineraryContainer
                                 onImageChange={setActiveImages}
                                 safari={individualPackage || {} as Itinerary}
@@ -338,7 +335,7 @@ const Individual = () => {
                 )
 
             case 'Trip Cost Summary':
-                return  (
+                return (
                     <div className='mb-10'>
                         <div className='left w-full'>
                             <TripCostForm
@@ -351,32 +348,32 @@ const Individual = () => {
                             />
                         </div>
                     </div>
-                // ) : (
-                //     <div className="flex items-center justify-center w-full p-6 sm:p-10">
-                //         <div className="w-full max-w-md bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 border border-gray-300 rounded-2xl shadow-lg p-6 sm:p-8 text-center">
+                    // ) : (
+                    //     <div className="flex items-center justify-center w-full p-6 sm:p-10">
+                    //         <div className="w-full max-w-md bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 border border-gray-300 rounded-2xl shadow-lg p-6 sm:p-8 text-center">
 
-                //             {/* Bouncing balls */}
-                //             <div className="flex justify-center mb-6 space-x-2">
-                //                 <span className="h-3 w-3 rounded-full bg-gray-900 animate-bounce" />
-                //                 <span className="h-3 w-3 rounded-full bg-gray-600 animate-bounce [animation-delay:-.2s]" />
-                //                 <span className="h-3 w-3 rounded-full bg-gray-400 animate-bounce [animation-delay:-.4s]" />
-                //             </div>
+                    //             {/* Bouncing balls */}
+                    //             <div className="flex justify-center mb-6 space-x-2">
+                    //                 <span className="h-3 w-3 rounded-full bg-gray-900 animate-bounce" />
+                    //                 <span className="h-3 w-3 rounded-full bg-gray-600 animate-bounce [animation-delay:-.2s]" />
+                    //                 <span className="h-3 w-3 rounded-full bg-gray-400 animate-bounce [animation-delay:-.4s]" />
+                    //             </div>
 
-                //             <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
-                //                 Login Required
-                //             </h2>
+                    //             <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
+                    //                 Login Required
+                    //             </h2>
 
-                //             <p className="text-sm sm:text-base text-gray-700 mb-4">
-                //                 You need to log in first to futher view this safari package and continue booking.
-                //             </p>
+                    //             <p className="text-sm sm:text-base text-gray-700 mb-4">
+                    //                 You need to log in first to futher view this safari package and continue booking.
+                    //             </p>
 
-                //             <p className="mb-2 text-gray-800">Press the button below!</p>
+                    //             <p className="mb-2 text-gray-800">Press the button below!</p>
 
-                //             <div className="mr-50">
-                //                 <LoginButton />
-                //             </div>
-                //         </div>
-                //     </div>
+                    //             <div className="mr-50">
+                    //                 <LoginButton />
+                    //             </div>
+                    //         </div>
+                    //     </div>
                 )
 
             default:
@@ -405,12 +402,12 @@ const Individual = () => {
         <div className='w-full'>
             <div className='w-full max-w-6xl mx-auto place-items-center'>
                 {/* Tabs */}
-                <div className="flex space-x-8 border-b mb-6">
+                <div className="flex space-x-8 border-b mb-6 mt-4 xl:mt-0">
                     {['Trip Overview', 'Trip Itinerary', 'Trip Cost Summary'].map((tab) => (
                         <button
                             key={tab}
                             onClick={() => setActiveTab(tab as any)}
-                            className={`pb-2 text-[10px] xl:text-[12px] cursor-pointer uppercase border-b-2 ${activeTab === tab ? 'border-blue-600 text-blue-600 xl:font-semibold' : 'border-transparent text-gray-600'
+                            className={`pb-2 text-[10px] xl:text-[12px] cursor-pointer uppercase border-b-2 ${activeTab === tab ? 'border-[#FD6D0D] text-[#FD6D0D] xl:font-semibold' : 'border-transparent text-gray-600'
                                 }`}
                         >
                             {tab}
