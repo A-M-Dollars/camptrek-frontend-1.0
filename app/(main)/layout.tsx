@@ -1,4 +1,4 @@
-import Navbar from "@/components/global/bars/other-pages-navbar/navbar";
+import Navbar from "@/components/global/bars/landing-navbar/navbar";
 import Footer from "@/components/global/footer/footer";
 import { Metadata } from "next";
 
