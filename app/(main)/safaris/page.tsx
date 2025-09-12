@@ -156,7 +156,7 @@ const SafarisPage = () => {
       <div>
         <div>
           <p className='
-          text-[12px] font-light uppercase flex justify-center mb-10 text-[#ED1C24]
+          text-[12px] font-light uppercase flex justify-center mb-10 text-black
           mt-10 xl:mt-0
           '
           >

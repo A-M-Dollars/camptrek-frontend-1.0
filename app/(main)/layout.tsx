@@ -15,7 +15,7 @@ const safarisLayout = ({ children }: SafarisLayoutProps) => {
     return (
         <div>
             <Navbar />
-            <div>
+            <div className="mt-5">
                 {children}
             </div>
             <Footer />

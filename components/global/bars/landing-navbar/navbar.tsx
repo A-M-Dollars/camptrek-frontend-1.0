@@ -85,7 +85,7 @@ function Navbar() {
         </div>
 
         {/* Desktop Header - Only visible on large devices and above */}
-        <div className='hidden lg:flex lg:gap-50 items-center px-8 xl:px-20 h-20 xl:h-18'>
+        <div className='hidden lg:flex lg:gap-50 items-center px-8 xl:px-20 h-20 xl:h-25'>
           {/* Desktop Logo */}
           <div className='flex-shrink-0 xl:mr-20'>
             <Link href={'/'}>

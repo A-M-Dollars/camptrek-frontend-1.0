@@ -59,7 +59,9 @@ function Aboutus() {
                     </div>
                     <hr />
                     <div className='mt-10 mb-5 flex justify-center items-center'>
-                        <button className='bg-[#FD6D0D] font-light text-[16px] text-white p-4 cursor-pointer'>GET TO KNOW MORE ABOUT US</button>
+                        <a href="/about-us">
+                            <button className='bg-[#FD6D0D] font-light text-[16px] text-white p-4 cursor-pointer'>GET TO KNOW MORE ABOUT US</button>
+                        </a>
                     </div>
                 </div>
             </div>
