@@ -14,16 +14,21 @@ import { useUserStore } from '@/store/userstore'
 import {CompassLoader} from '@/components/about-us/travel-guides/loaders/loaders'
 
 const SafarisPage = () => {
+  const [mounted, setMounted] = useState(false)
   const isAuthenticated = useUserStore(state => state.isAuthenticated)
   const params = useParams()
   const router = useRouter()
   const searchParams = useSearchParams()
   
+  // Ensure component is mounted before using searchParams
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+  
   // Get current page from URL params, default to 1
-  const currentPage = parseInt(searchParams.get('page') || '1', 10)
+  const currentPage = mounted ? parseInt(searchParams.get('page') || '1', 10) : 1
 
   const handleFetch = async () => {
-    // Include page parameter in the API request
     const apiParams = {
       ...params,
       page: currentPage
@@ -33,10 +38,11 @@ const SafarisPage = () => {
   }
 
   const { data: allSafaris, isLoading, error } = useQuery({
-    queryKey: ['allSafaris', params, currentPage], // Include currentPage in query key
+    queryKey: ['allSafaris', params, currentPage],
     queryFn: handleFetch,
     staleTime: 1000 * 60 * 30,
     gcTime: 1000 * 60 * 35,
+    enabled: mounted // Only run query after component is mounted
   })
 
   // Get filter values and actions from store
@@ -96,11 +102,10 @@ const SafarisPage = () => {
 
   // Function to handle page navigation
   const handlePageChange = (page: number) => {
-    // Create new URLSearchParams to preserve existing query params
+    if (!mounted) return
+    
     const newSearchParams = new URLSearchParams(searchParams.toString())
     newSearchParams.set('page', page.toString())
-    
-    // Navigate to new page with updated search params
     router.push(`?${newSearchParams.toString()}`)
   }
 
@@ -112,12 +117,10 @@ const SafarisPage = () => {
     const current = currentPage
     const pageNumbers = []
     
-    // Show up to 5 page numbers with current page in center when possible
     const maxVisible = 5
     let start = Math.max(1, current - Math.floor(maxVisible / 2))
     let end = Math.min(totalPages, start + maxVisible - 1)
     
-    // Adjust start if we're near the end
     if (end - start + 1 < maxVisible) {
       start = Math.max(1, end - maxVisible + 1)
     }
@@ -129,7 +132,8 @@ const SafarisPage = () => {
     return pageNumbers
   }
 
-  if (isLoading) {
+  // Show loading while mounting or fetching
+  if (!mounted || isLoading) {
     return (
       <div>
         <div className='grid grid-cols-4 gap-4'>
