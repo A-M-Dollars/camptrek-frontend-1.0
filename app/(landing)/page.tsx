@@ -10,6 +10,7 @@ import { useParams } from 'next/navigation'
 import { useQuery } from '@tanstack/react-query'
 import React, { useRef } from 'react'
 import { Itinerary } from '@/constants/itinerary'
+import Link from 'next/link'
 
 const Landing = () => {
 
@@ -35,9 +36,9 @@ const Landing = () => {
 
   return (
     <div className='overflow-x-hidden'>
-      <Herosection scrollToAbout={() => aboutRef.current?.scrollIntoView({ behavior: "smooth" })}/>
+      <Herosection scrollToAbout={() => aboutRef.current?.scrollIntoView({ behavior: "smooth" })} />
       {/* everything below is for the tour section */}
-      <div  ref={aboutRef} className="overflow-x-hidden xl:brightness-100 bg-[black] text-white pb-10 px-4 py-5 xl:py-10">
+      <div ref={aboutRef} className="overflow-x-hidden xl:brightness-100 bg-[black] text-white pb-10 px-4 py-5 xl:py-10">
         <div className="ml-[15px] xl:ml-[55px]">
           <div className="mb-10 xl:ml-10">
             <h1 className="font-semibold text-[#FD6D0D] text-[32px]">POPULAR SAFARI ITINERARIES</h1>
@@ -52,15 +53,22 @@ const Landing = () => {
             </div>
           </div>
 
-          <CustomCarousel>
-            {tours?.itineraries && tours.itineraries.length > 0 ? (
-              tours.itineraries.map((tour: Itinerary) => (
-                <CustomCard key={tour.id} {...tour} />
-              ))
-            ) : (
-              <div className="hidden">Tours coming up</div>
-            )}
-          </CustomCarousel>
+          <div>
+            <Link href="/safaris">
+              <p className='flex justify-end mr-10 mb-2 underline text-[#FD6D0D] capitalize'>
+                see all safaris
+              </p>
+            </Link>
+            <CustomCarousel>
+              {tours?.itineraries && tours.itineraries.length > 0 ? (
+                tours.itineraries.map((tour: Itinerary) => (
+                  <CustomCard key={tour.id} {...tour} />
+                ))
+              ) : (
+                <div className="hidden">Tours coming up</div>
+              )}
+            </CustomCarousel>
+          </div>
         </div>
       </div>
 

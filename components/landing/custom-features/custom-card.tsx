@@ -9,7 +9,6 @@ import { Itinerary } from '@/constants/itinerary'
 const CustomCard = ({ images, title, location, duration, price, discount, id }: Itinerary) => {
     const router = useRouter()
     const handleClick = () => {
-        console.log(id)
         router.push(`/safaris/${id}`)
     }
 
