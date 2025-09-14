@@ -1,10 +1,10 @@
 'use client'
 
-import React, { useMemo, useEffect } from 'react'
+import React, { useMemo, useEffect, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import ShowcaseCardsSkeleton from '@/components/all_safaris/marketplace-section/marketplace-section-skeleton/skeleton-show-cards'
 import { baseInstance } from '@/constants/apis'
-import { useParams } from 'next/navigation'
+import { useParams, useRouter, useSearchParams } from 'next/navigation'
 import ShowCaseCards from '@/components/all_safaris/marketplace-section/market-place-show/show-case-cards'
 import { Itinerary } from '@/constants/itinerary'
 import FilterBarSection from '@/components/all_safaris/filter-bar-section/filterbar'
@@ -13,20 +13,27 @@ import { extractFilterOptions } from '@/constants/extracthelper'
 import { useUserStore } from '@/store/userstore'
 import {CompassLoader} from '@/components/about-us/travel-guides/loaders/loaders'
 
-
 const SafarisPage = () => {
-
   const isAuthenticated = useUserStore(state => state.isAuthenticated)
-
   const params = useParams()
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  
+  // Get current page from URL params, default to 1
+  const currentPage = parseInt(searchParams.get('page') || '1', 10)
 
   const handleFetch = async () => {
-    const response = await baseInstance.get('/itineraries', { params })
+    // Include page parameter in the API request
+    const apiParams = {
+      ...params,
+      page: currentPage
+    }
+    const response = await baseInstance.get('/itineraries', { params: apiParams })
     return response.data
   }
 
   const { data: allSafaris, isLoading, error } = useQuery({
-    queryKey: ['allSafaris', params],
+    queryKey: ['allSafaris', params, currentPage], // Include currentPage in query key
     queryFn: handleFetch,
     staleTime: 1000 * 60 * 30,
     gcTime: 1000 * 60 * 35,
@@ -39,30 +46,18 @@ const SafarisPage = () => {
     days,
     budget,
     currency,
-    setAvailableOptions // This is the key function!
+    setAvailableOptions
   } = useFilterStore()
 
   // Update filter options when API data changes
   useEffect(() => {
     if (allSafaris?.itineraries && allSafaris.itineraries.length > 0) {
       console.log('🔄 Updating filter options from API data...')
-
-      // Extract unique options from API data
       const options = extractFilterOptions(allSafaris.itineraries)
       console.log('📋 Available options:', options)
-
-      // Update the store with available options
       setAvailableOptions(options)
     }
   }, [allSafaris?.itineraries, setAvailableOptions])
-
-  // Currency conversion rates
-  const rates = {
-    USD: 1,
-    KES: 130,
-    EUR: 0.92,
-    GBP: 0.78,
-  }
 
   // Filter the itineraries based on filter criteria
   const filteredItineraries = useMemo(() => {
@@ -71,28 +66,22 @@ const SafarisPage = () => {
     console.log('🔍 Applying filters:', { location, accommodationType, days, budget, currency })
 
     return allSafaris.itineraries.filter((itinerary: Itinerary) => {
-      // Match location
       const matchesLocation = location
         ? itinerary.location?.toLowerCase().includes(location.toLowerCase())
         : true
 
-      // Match accommodation type
       const matchesType = accommodationType
         ? itinerary.accommodation === accommodationType
         : true
 
-      // Match days (handle both array and number types)
       const matchesDays = days
         ? (Array.isArray(itinerary.days)
           ? itinerary.days.length === days
           : itinerary.days === days)
         : true
 
-
-
       const passes = matchesLocation && matchesType && matchesDays
 
-      // Debug logging (remove in production)
       if (!passes) {
         console.log('❌ Filtered out:', itinerary.title, {
           matchesLocation,
@@ -104,6 +93,41 @@ const SafarisPage = () => {
       return passes
     })
   }, [allSafaris?.itineraries, location, accommodationType, days, currency])
+
+  // Function to handle page navigation
+  const handlePageChange = (page: number) => {
+    // Create new URLSearchParams to preserve existing query params
+    const newSearchParams = new URLSearchParams(searchParams.toString())
+    newSearchParams.set('page', page.toString())
+    
+    // Navigate to new page with updated search params
+    router.push(`?${newSearchParams.toString()}`)
+  }
+
+  // Generate page numbers for pagination
+  const generatePageNumbers = () => {
+    if (!allSafaris?.pages) return []
+    
+    const totalPages = allSafaris.pages
+    const current = currentPage
+    const pageNumbers = []
+    
+    // Show up to 5 page numbers with current page in center when possible
+    const maxVisible = 5
+    let start = Math.max(1, current - Math.floor(maxVisible / 2))
+    let end = Math.min(totalPages, start + maxVisible - 1)
+    
+    // Adjust start if we're near the end
+    if (end - start + 1 < maxVisible) {
+      start = Math.max(1, end - maxVisible + 1)
+    }
+    
+    for (let i = start; i <= end; i++) {
+      pageNumbers.push(i)
+    }
+    
+    return pageNumbers
+  }
 
   if (isLoading) {
     return (
@@ -133,7 +157,7 @@ const SafarisPage = () => {
 
   return (
     <div>
-      {/* Filter section - will automatically use dynamic options */}
+      {/* Filter section */}
       <div className='ads mt-5 xl:mt-0'>
         <FilterBarSection />
       </div>
@@ -152,18 +176,88 @@ const SafarisPage = () => {
         )}
       </div>
 
-      {/* Pagination */}
-      <div>
-        <div>
-          <p className='
-          text-[12px] font-light uppercase flex justify-center mb-10 text-black
-          mt-10 xl:mt-0
-          '
+      {/* Enhanced Pagination */}
+      {allSafaris.pages > 1 && (
+        <div className="flex justify-center items-center space-x-2 mb-10 mt-10 xl:mt-0">
+          {/* Previous button */}
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+            className={`px-3 py-2 text-[12px] font-medium uppercase cursor-pointer w-[84px] ${
+              currentPage === 1
+                ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                : 'bg-white text-gray-700 border border-gray-200 hover:bg-[#FD6D0D] hover:text-white transition-colors'
+            }`}
           >
-            Page {allSafaris.current_page} of {allSafaris.pages}</p>
-        </div>
-      </div>
+            Previous
+          </button>
 
+          {/* First page if not visible in page numbers */}
+          {generatePageNumbers()[0] > 1 && (
+            <>
+              <button
+                onClick={() => handlePageChange(1)}
+                className="px-3 py-2 rounded-md text-sm font-medium bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 transition-colors"
+              >
+                1
+              </button>
+              {generatePageNumbers()[0] > 2 && (
+                <span className="px-3 py-2 text-gray-500">...</span>
+              )}
+            </>
+          )}
+
+          {/* Page numbers */}
+          {generatePageNumbers().map((pageNum) => (
+            <button
+              key={pageNum}
+              onClick={() => handlePageChange(pageNum)}
+              className={`px-3 py-2 text-[12px] font-medium uppercase cursor-pointer w-[34px] transition-colors ${
+                pageNum === currentPage
+                  ? 'bg-[#FD6D0D] text-white'
+                  : 'bg-white text-gray-700 border border-gray-200 hover:bg-[#FD6D0D] hover:text-white'
+              }`}
+            >
+              {pageNum}
+            </button>
+          ))}
+
+          {/* Last page if not visible in page numbers */}
+          {generatePageNumbers()[generatePageNumbers().length - 1] < allSafaris.pages && (
+            <>
+              {generatePageNumbers()[generatePageNumbers().length - 1] < allSafaris.pages - 1 && (
+                <span className="px-3 py-2 text-gray-500">...</span>
+              )}
+              <button
+                onClick={() => handlePageChange(allSafaris.pages)}
+                className="px-3 py-2 rounded-md text-sm font-medium bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 transition-colors"
+              >
+                {allSafaris.pages}
+              </button>
+            </>
+          )}
+
+          {/* Next button */}
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === allSafaris.pages}
+            className={`px-3 py-2 text-[12px] font-medium uppercase cursor-pointer w-[84px] ${
+              currentPage === allSafaris.pages
+                ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                : 'bg-white text-gray-700 border border-gray-300 hover:bg-[#FD6D0D] hover:text-white transition-colors'
+            }`}
+          >
+            Next
+          </button>
+        </div>
+      )}
+
+      {/* Page info */}
+      <div className="text-center mb-10">
+        <p className="text-[12px] font-light uppercase text-black">
+          Page {allSafaris.current_page} of {allSafaris.pages}
+        </p>
+      </div>
     </div>
   )
 }
