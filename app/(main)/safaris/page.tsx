@@ -1,5 +1,8 @@
 'use client'
 
+
+import { Suspense } from 'react'
+import {CompassLoader} from '@/components/about-us/travel-guides/loaders/loaders'
 import React, { useMemo, useEffect, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import ShowcaseCardsSkeleton from '@/components/all_safaris/marketplace-section/marketplace-section-skeleton/skeleton-show-cards'
@@ -11,24 +14,19 @@ import FilterBarSection from '@/components/all_safaris/filter-bar-section/filter
 import { useFilterStore } from '@/store/filterstore'
 import { extractFilterOptions } from '@/constants/extracthelper'
 import { useUserStore } from '@/store/userstore'
-import {CompassLoader} from '@/components/about-us/travel-guides/loaders/loaders'
 
-const SafarisPage = () => {
-  const [mounted, setMounted] = useState(false)
+
+const SafarisContent = () => {
   const isAuthenticated = useUserStore(state => state.isAuthenticated)
   const params = useParams()
   const router = useRouter()
   const searchParams = useSearchParams()
   
-  // Ensure component is mounted before using searchParams
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-  
   // Get current page from URL params, default to 1
-  const currentPage = mounted ? parseInt(searchParams.get('page') || '1', 10) : 1
+  const currentPage = parseInt(searchParams.get('page') || '1', 10)
 
   const handleFetch = async () => {
+    // Include page parameter in the API request
     const apiParams = {
       ...params,
       page: currentPage
@@ -38,11 +36,10 @@ const SafarisPage = () => {
   }
 
   const { data: allSafaris, isLoading, error } = useQuery({
-    queryKey: ['allSafaris', params, currentPage],
+    queryKey: ['allSafaris', params, currentPage], // Include currentPage in query key
     queryFn: handleFetch,
     staleTime: 1000 * 60 * 30,
     gcTime: 1000 * 60 * 35,
-    enabled: mounted // Only run query after component is mounted
   })
 
   // Get filter values and actions from store
@@ -102,10 +99,11 @@ const SafarisPage = () => {
 
   // Function to handle page navigation
   const handlePageChange = (page: number) => {
-    if (!mounted) return
-    
+    // Create new URLSearchParams to preserve existing query params
     const newSearchParams = new URLSearchParams(searchParams.toString())
     newSearchParams.set('page', page.toString())
+    
+    // Navigate to new page with updated search params
     router.push(`?${newSearchParams.toString()}`)
   }
 
@@ -117,10 +115,12 @@ const SafarisPage = () => {
     const current = currentPage
     const pageNumbers = []
     
+    // Show up to 5 page numbers with current page in center when possible
     const maxVisible = 5
     let start = Math.max(1, current - Math.floor(maxVisible / 2))
     let end = Math.min(totalPages, start + maxVisible - 1)
     
+    // Adjust start if we're near the end
     if (end - start + 1 < maxVisible) {
       start = Math.max(1, end - maxVisible + 1)
     }
@@ -132,8 +132,7 @@ const SafarisPage = () => {
     return pageNumbers
   }
 
-  // Show loading while mounting or fetching
-  if (!mounted || isLoading) {
+  if (isLoading) {
     return (
       <div>
         <div className='grid grid-cols-4 gap-4'>
@@ -187,10 +186,10 @@ const SafarisPage = () => {
           <button
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
-            className={`px-3 py-2 text-[12px] font-medium uppercase cursor-pointer w-[84px] ${
+            className={`px-3 py-2 rounded-md text-sm font-medium ${
               currentPage === 1
                 ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                : 'bg-white text-gray-700 border border-gray-200 hover:bg-[#FD6D0D] hover:text-white transition-colors'
+                : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 transition-colors'
             }`}
           >
             Previous
@@ -216,10 +215,10 @@ const SafarisPage = () => {
             <button
               key={pageNum}
               onClick={() => handlePageChange(pageNum)}
-              className={`px-3 py-2 text-[12px] font-medium uppercase cursor-pointer w-[34px] transition-colors ${
+              className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                 pageNum === currentPage
-                  ? 'bg-[#FD6D0D] text-white'
-                  : 'bg-white text-gray-700 border border-gray-200 hover:bg-[#FD6D0D] hover:text-white'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
               }`}
             >
               {pageNum}
@@ -245,10 +244,10 @@ const SafarisPage = () => {
           <button
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === allSafaris.pages}
-            className={`px-3 py-2 text-[12px] font-medium uppercase cursor-pointer w-[84px] ${
+            className={`px-3 py-2 rounded-md text-sm font-medium ${
               currentPage === allSafaris.pages
                 ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                : 'bg-white text-gray-700 border border-gray-300 hover:bg-[#FD6D0D] hover:text-white transition-colors'
+                : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 transition-colors'
             }`}
           >
             Next
@@ -263,6 +262,19 @@ const SafarisPage = () => {
         </p>
       </div>
     </div>
+  )
+}
+
+// Main component wrapped with Suspense
+const SafarisPage = () => {
+  return (
+    <Suspense fallback={
+      <div className="flex justify-center items-center min-h-screen">
+        <CompassLoader />
+      </div>
+    }>
+      <SafarisContent />
+    </Suspense>
   )
 }
 
