@@ -38,10 +38,10 @@ const Landing = () => {
     <div className='overflow-x-hidden'>
       <Herosection scrollToAbout={() => aboutRef.current?.scrollIntoView({ behavior: "smooth" })} />
       {/* everything below is for the tour section */}
-      <div ref={aboutRef} className="overflow-x-hidden xl:brightness-100 bg-[black] text-white pb-10 px-4 py-5 xl:py-10">
+      <div ref={aboutRef} className="overflow-x-hidden mt-[-65%] lg:mt-[-50%] xl:brightness-100 bg-[black] text-white pb-10 px-4 py-5 xl:py-10">
         <div className="ml-[15px] xl:ml-[55px]">
           <div className="mb-10 xl:ml-10">
-            <h1 className="font-semibold text-[#FD6D0D] text-[32px]">POPULAR SAFARI ITINERARIES</h1>
+            <h1 className="font-semibold text-[#FD6D0D] text-[24px] md:text-[32px]">POPULAR SAFARI ITINERARIES</h1>
             <div className="text-[14px] mt-4 font-light">
               <p>
                 When you travel with us we will ensure you get the best seamless safari experience throughout your vacation.

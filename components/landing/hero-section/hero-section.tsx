@@ -1,7 +1,7 @@
 import { Video } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
-import { arrowButton } from '@/public/svgs/svgs-file'
+import { arrowButton, arrowButton2 } from '@/public/svgs/svgs-file'
 import bannerPhoto from '@/public/packages/Family-experience-at-kichwa-tembo-and-beyond.jpg'
 
 type HeroProps = {
@@ -16,7 +16,7 @@ function Herosection({ scrollToAbout }: HeroProps) {
                 <video
                     className="
                     absolute brightness-60 top-0 left-0 min-w-full
-                    min-h-full lg:h-[50%] object-cover -z-10
+                    h-[50%] object-cover -z-10
                     "
                     src="/hero/herovid.mp4"
                     autoPlay
@@ -26,27 +26,27 @@ function Herosection({ scrollToAbout }: HeroProps) {
                 />
 
                 {/* Content on top */}
-                <div className="relative z-10 mb-10 xl:mb-0  h-full text-black">
+                <div className="relative z-10 mb-10 xl:mb-0 text-black">
                     <div className='grid grid-cols-5 place-items-center gap-2 
-                    h-[70px] mt-15 xl:mt-20 bg-white xl:w-[35%] md:w-[60%] ml-2 mr-2 xl:mr-2 xl:ml-10 rounded'>
-                        <img src={bannerPhoto.src} alt="bannerPhoto" className='col-span-1 h-15 ml-2 xl:ml-0 rounded xl:rounded-0 xl:w-[780px] xl:h-[70px]' />
-                        <p className='flex place-items-center col-span-3 uppercase text-[12px]'>
+                    h-[50px] md:h-[70px] mt-[8] lg:mt-15 xl:mt-20 bg-white xl:w-[35%] md:w-[60%] ml-2 mr-2 xl:mr-2 xl:ml-10 rounded'>
+                        <img src={bannerPhoto.src} alt="bannerPhoto" className='col-span-1 h-[35px] w-[45px] md:w-[45px] ml-2 xl:ml-0 rounded xl:rounded-0 xl:w-[780px] xl:h-[70px]' />
+                        <p className='flex place-items-center col-span-3 uppercase text-[10px] md:text-[12px]'>
                             Introducing our popular safari packages
                         </p>
-                        <div onClick={scrollToAbout} className='bg-[#FD6D0D] w-[60px] h-[50px] 
+                        <div onClick={scrollToAbout} className='bg-[#FD6D0D] w-[30px] h-[25px] md:w-[60px] md:h-[50px] 
                         flex place-items-center justify-center col-span-1 mr-2 xl:mr-0 rounded cursor-pointer'>
-                            {arrowButton}
+                            {arrowButton2}
                         </div>
                     </div>
-                    <div className='mt-[80%] xl:mt-[20%] xl:mb-12 flex justify-end'>
-                        <div className=' w-[50%] md:w-[30%] xl:w-[15%] mr-10'>
+                    <div className='mt-[90%] xl:mt-[70%] xl:mb-12 flex justify-end'>
+                        <div className='hidden lg:block w-[50%] md:w-[30%] xl:w-[15%] mr-10 mt-[-55%]'>
                             <p className='mb-5 text-white text-[18px]'>
                                 Explore, discover, and unwind in Africa
                             </p>
                             <Link href={'/safaris'}>
                                 <button
                                     className='bg-[#FD6D0D] text-white cursor-pointer
-                                 h-[50px] lg:h-[70px] w-full mr-10 uppercase text-[14px] lg:text-[14px] rounded
+                                 h-[50px] lg:h-[50px] w-full mr-10 uppercase text-[14px] lg:text-[14px] rounded
                                 '>
                                     Explore Safari Packages
                                 </button>

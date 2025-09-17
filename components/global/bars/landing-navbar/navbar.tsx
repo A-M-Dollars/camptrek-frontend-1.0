@@ -37,7 +37,7 @@ function Navbar() {
   return (
     <>
       <motion.nav
-        className='bg-[#FD6D0D] fixed top-0 left-0 w-full z-50 text-white shadow-lg xl:place-items-center'
+        className='bg-blue-900 fixed top-0 left-0 w-full z-50 text-white shadow-lg xl:place-items-center'
         initial={{ y: 0 }}
         animate={{
           y: visible ? 0 : -100,
@@ -138,7 +138,7 @@ function Navbar() {
 
         {/* Mobile Menu - Only visible on small and medium devices */}
         <motion.div
-          className={`lg:hidden bg-[#FD6D0D] border-t border-white ${mobileMenuOpen ? 'block' : 'hidden'
+          className={`lg:hidden bg-blue-900 border-t border-white ${mobileMenuOpen ? 'block' : 'hidden'
             }`}
           initial={{ opacity: 0, height: 0 }}
           animate={{

@@ -8,6 +8,7 @@ import { baseInstance } from '@/constants/apis';
 import Image from 'next/image';
 import dialogHeaderImage from '@/public/dialog/dialog1.jpeg'
 import { motion } from 'framer-motion';
+import profilePicture from '@/public/hero/userprofile.jpg'
 
 import {
     Dialog,
@@ -42,12 +43,12 @@ const LoginButton = () => {
         return (
             <div className='xl:flex xl:flex-row xl:gap-2 xl:place-items-center'>
 
-                <div className='ml-30'>
+                <div className='ml-3 mt-10 xl:mt-0 xl:ml-30 '>
                     <Dialog>
                         <DialogTrigger>
-                            <div className='flex gap-2 mb-4 xl:mb-0 place-items-center'>
-                                <Image src={photo} height={25} width={25} alt='Profile Picture' className='rounded-full' />
-                                <p className='text-base font-light text-transform: uppercase'>{name}</p>
+                            <div className='flex gap-2 mb-4 xl:mb-0 place-items-center cursor-pointer'>
+                                <Image src={photo ? photo : profilePicture} height={25} width={25} alt='Profile Picture' className='rounded-full' />
+                                <p className='text-base font-light text-transform: uppercase'>{name ? name: "Welcome to Camptrek"}</p>
                             </div>
                         </DialogTrigger>
                         <DialogContent>

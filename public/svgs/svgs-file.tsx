@@ -159,3 +159,15 @@ export const arrowButton = <svg width="35" height="35" viewBox="0 0 15 14" fill=
 </clipPath>
 </defs>
 </svg>
+
+export const arrowButton2 = <svg width="15" height="15" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clipPath="url(#clip0_1545_9993)">
+<path d="M1.25 7H14.25" stroke="#fff" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M10.75 10.5L14.25 7L10.75 3.5" stroke="#fff" strokeLinecap="round" strokeLinejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_1545_9993">
+<rect width="14" height="14" fill="white" transform="translate(0.75)"/>
+</clipPath>
+</defs>
+</svg>
