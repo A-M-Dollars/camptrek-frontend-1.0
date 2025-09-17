@@ -155,13 +155,13 @@ function Navbar() {
             >
               SAFARIS
             </Link>
-            <Link
+            {/* <Link
               href={'/accommodation'}
               className='block py-2 hover:text-gray-300 transition-colors duration-200 text-base font-light'
               onClick={closeMobileMenu}
             >
               ACCOMMODATION
-            </Link>
+            </Link> */}
             <Link
               href={'/blogs'}
               className='block py-2 hover:text-gray-300 transition-colors duration-200 text-base font-light'
