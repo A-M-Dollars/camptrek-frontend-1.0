@@ -36,9 +36,13 @@ const Landing = () => {
 
   return (
     <div className='overflow-x-hidden'>
-      <Herosection scrollToAbout={() => aboutRef.current?.scrollIntoView({ behavior: "smooth" })} />
+      <div className='h-[40vh] xl:h-[65vh]'>
+        <Herosection
+          scrollToAbout={() => aboutRef.current?.scrollIntoView({ behavior: "smooth" })}
+        />
+      </div>
       {/* everything below is for the tour section */}
-      <div ref={aboutRef} className="overflow-x-hidden mt-[-65%] lg:mt-[-50%] xl:brightness-100 bg-[black] text-white pb-10 px-4 py-5 xl:py-10">
+      <div ref={aboutRef} className="overflow-x-hidden xl:brightness-100 bg-[black] text-white pb-10 px-4 py-5 xl:py-10">
         <div className="ml-[15px] xl:ml-[55px]">
           <div className="mb-10 xl:ml-10">
             <h1 className="font-semibold text-[#FD6D0D] text-[24px] md:text-[32px]">POPULAR SAFARI ITINERARIES</h1>
@@ -55,7 +59,7 @@ const Landing = () => {
 
           <div>
             <Link href="/safaris">
-              <p className='flex justify-end mr-10 mb-2 underline text-[#FD6D0D] capitalize'>
+              <p className='flex justify-end mr-10 mb-2 underline text-[#FD6D0D] cursor-pointer capitalize'>
                 see all safaris
               </p>
             </Link>
