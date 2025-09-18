@@ -12,7 +12,12 @@ export const safariPackages = [
       "Guided cultural visits",
       "Wellness & relaxation options",
     ],
-    image: "/packages/seniorspack.jpg",
+    images: [
+      "/packages/seniorspack.jpg",
+      "/packages/seniors/s1.jpg",
+      "/packages/seniors/s3.jpg",
+      "/packages/seniors/s7.jpg",
+    ]
   },
   {
     id: "safari-beach",
@@ -25,7 +30,13 @@ export const safariPackages = [
       "Snorkeling & water sports",
       "Seamless transfers from bush to beach",
     ],
-    image: "/images/Royal-Zanzibar-family-scuba.jpg",
+    images: [
+      "/images/Royal-Zanzibar-family-scuba.jpg",
+      "/packages/beaches/b3.jpg",
+      "/packages/beaches/b4.jpg",
+      "/packages/beaches/b5.jpg",
+      "/packages/beaches/b6.jpg",
+    ]
   },
   {
     id: "family-safaris",
@@ -38,7 +49,12 @@ export const safariPackages = [
       "Private vehicles for flexibility",
       "Safe and interactive wildlife encounters",
     ],
-    image: "/packages/Family-experience-at-kichwa-tembo-and-beyond.jpg",
+    images: [
+      "/packages/Family-experience-at-kichwa-tembo-and-beyond.jpg",
+      "/packages/family/f2.jpg",
+      "/packages/family/f3.jpg",
+      "/packages/family/f4.jpg",
+    ]
   },
   {
     id: "luxury-safaris",
@@ -51,7 +67,13 @@ export const safariPackages = [
       "Personal guides & butlers",
       "Fine dining under the stars",
     ],
-    image: "/packages/Massage-spa-overlooking-the-plains-of-mara-1024x684.jpg",
+    images: [
+      "/packages/Massage-spa-overlooking-the-plains-of-mara-1024x684.jpg",
+      "/packages/luxury/l1.jpg",
+      "/packages/luxury/l2.jpg",
+      "/packages/luxury/l3.jpg",
+      "/packages/luxury/l4.jpg",
+    ]
   },
   {
     id: "honeymoon-safaris",
@@ -64,6 +86,11 @@ export const safariPackages = [
       "Secluded game drives",
       "Safari + beach combinations",
     ],
-    image: "/packages/honeymoon.jpg",
+    images: [
+      "/packages/honeymoon.jpg",
+      "/packages/honeymoon/h1.jpg",
+      "/packages/honeymoon/h4.jpg",
+      "/packages/honeymoon/h3.jpg",
+    ]
   },
 ];

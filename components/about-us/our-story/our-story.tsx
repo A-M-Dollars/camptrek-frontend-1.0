@@ -100,7 +100,7 @@ const Ourstory = () => {
                   className='w-full h-full' />
               </div>
               <div className='p-5'>
-                <p className='text-[14px] mb-1'>John Njoroge</p>
+                <p className='text-[14px] mb-1'>Papa John</p>
                 <p className='text-gray-600 text-[12px] uppercase'>Director</p>
               </div>
             </div>

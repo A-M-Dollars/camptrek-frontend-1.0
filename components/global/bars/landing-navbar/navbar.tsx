@@ -120,7 +120,7 @@ function Navbar() {
               ABOUT US
             </Link>
             <Link
-              href={'/contacts-us'}
+              href={'/contacts'}
               className='hover:text-gray-300 transition-colors duration-200 text-sm xl:text-base'
             >
               CONTACTS

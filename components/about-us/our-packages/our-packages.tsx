@@ -1,8 +1,10 @@
 import React from 'react'
 import Image from 'next/image'
 import lion from '@/public/about-us/lion.jpg'
-import Cardcontent from './cardcontent/cardcontent'
-import { dash } from '@/public/svgs/svgs-file'
+// import Cardcontent from './cardcontent/cardcontent'
+import { Card, CardContent } from "@/components/ui/card"
+import { safariPackages } from '@/constants/packages'
+import { arrowButton2, arrowButton3, dash, readmore } from '@/public/svgs/svgs-file'
 
 
 // import { Card, CardContent } from "@/components/ui/carousel"
@@ -13,6 +15,15 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
+
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion"
+import Cardcontent from './cardcontent/cardcontent'
+import Link from 'next/link'
 
 
 const Ourpackages = () => {
@@ -29,7 +40,81 @@ const Ourpackages = () => {
                     <span className='xl:hidden xl:mr-5'>{dash}</span>
                 </div>
             </div>
-            <div className='package-carousel'>
+            <div className='hidden xl:block pl-50 pr-50 pt-5 pb-20'>
+                <Accordion
+                    type="single"
+                    collapsible
+                    className="w-full"
+                    defaultValue="item-1"
+                >
+                    {
+                        safariPackages.map((pack) => (
+                            <AccordionItem value={pack.id} key={pack.id}>
+                                <AccordionTrigger>
+                                    <div className='flex flex-col'>
+                                        <span className='uppercase mb-1'>
+                                            {pack.title}
+                                        </span>
+                                        <span className='font-light text-[13px] text-gray-600'>
+                                            {pack.description}
+                                        </span>
+                                    </div>
+                                </AccordionTrigger>
+                                <AccordionContent className="flex flex-col gap-4 text-balance">
+                                    {/* <p className='text-[12px] text-blue-600 uppercase'>
+                                        <Link href="/safaris" className='underline text-[10px]'>
+                                            <span>
+                                                Explore our safaris 
+                                            </span>
+                                        </Link>
+                                    </p> */}
+                                    <div className='package-carousel'>
+                                        <Carousel>
+                                            <CarouselContent>
+                                                <CarouselItem>
+                                                    <div>
+                                                        <Card key={pack.id}>
+                                                            <CardContent>
+                                                                <div className='flex flex-row gap-1'>
+                                                                    {
+                                                                        pack.images && pack.images.length > 0 && (
+                                                                            pack.images.map((album: string, idx: number) => (
+                                                                                <div
+                                                                                    className='h-[250px] w-full overflow-hidden'
+                                                                                    key={idx}>
+                                                                                    <img
+                                                                                        src={album}
+                                                                                        alt='CAMPTREK DIRECTION'
+                                                                                        style={{ objectFit: 'cover' }}
+                                                                                        className='w-full h-full'
+                                                                                    />
+                                                                                </div>
+                                                                            ))
+                                                                        )
+                                                                    }
+                                                                </div>
+                                                            </CardContent>
+                                                        </Card>
+                                                    </div>
+                                                </CarouselItem>
+                                            </CarouselContent>
+                                        </Carousel>
+                                    </div>
+                                    <p className='text-[12px] text-blue-600 uppercase'>
+                                        <Link href="/safaris" className=' flex gap-2 underline text-[12px] justify-end flex'>
+                                            <span>
+                                                Explore our safaris
+                                            </span>
+                                            {arrowButton3}
+                                        </Link>
+                                    </p>
+                                </AccordionContent>
+                            </AccordionItem>
+                        ))
+                    }
+                </Accordion>
+            </div>
+            <div className='package-carousel xl:hidden'>
                 <Carousel>
                     <CarouselContent>
                         <CarouselItem>
@@ -40,103 +125,6 @@ const Ourpackages = () => {
                     </CarouselContent>
                 </Carousel>
             </div>
-            {/* <div className='xl:flex xl:flex-rows-5 xl:gap-5 hidden xl:block'>
-                <div className='old_Customers  xl:border '>
-                    <div className='old_Customers'>
-                        <div className='h-[330px] w-[350px] overflow-hidden'>
-                            <Image src={lion} alt='CAMPTREK DIRECTION' style={{ objectFit: 'cover', height: '100%', width: '100%' }} />
-                        </div>
-                        <div className='p-5'>
-                            <p className='font-medium text-[20px] uppercase mb-3'>seniors travelers</p>
-                            <p className='font-light text-[10px] uppercase'>
-                                Our senior-friendly safari packages are <br />
-                                thoughtfully designed for comfort, safety, and <br />
-                                flexibility. Expect shorter travel days, premium <br />
-                                lodges with accessibility in mind, and experienced <br />
-                                guides who cater to your unique needs. Enjoy <br />
-                                breathtaking landscapes and wildlife encounters <br />
-                                without the rush.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div className='safari_and_beaches xl:border'>
-                    <div className='old_Customers'>
-                        <div className='h-[330px] w-[350px] overflow-hidden'>
-                            <Image src={lion} alt='CAMPTREK DIRECTION' style={{ objectFit: 'cover', height: '100%', width: '100%' }} />
-                        </div>
-                        <div className='p-5'>
-                            <p className='font-medium text-[20px] uppercase mb-3'>seniors travelers</p>
-                            <p className='font-light text-[10px] uppercase'>
-                                Our senior-friendly safari packages are <br />
-                                thoughtfully designed for comfort, safety, and <br />
-                                flexibility. Expect shorter travel days, premium <br />
-                                lodges with accessibility in mind, and experienced <br />
-                                guides who cater to your unique needs. Enjoy <br />
-                                breathtaking landscapes and wildlife encounters <br />
-                                without the rush.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div className='family_safaris xl:border'>
-                    <div className='old_Customers'>
-                        <div className='h-[330px] w-[350px] overflow-hidden'>
-                            <Image src={lion} alt='CAMPTREK DIRECTION' style={{ objectFit: 'cover', height: '100%', width: '100%' }} />
-                        </div>
-                        <div className='p-5'>
-                            <p className='font-medium text-[20px] uppercase mb-3'>seniors travelers</p>
-                            <p className='font-light text-[10px] uppercase'>
-                                Our senior-friendly safari packages are <br />
-                                thoughtfully designed for comfort, safety, and <br />
-                                flexibility. Expect shorter travel days, premium <br />
-                                lodges with accessibility in mind, and experienced <br />
-                                guides who cater to your unique needs. Enjoy <br />
-                                breathtaking landscapes and wildlife encounters <br />
-                                without the rush.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div className='luxury_safaris xl:border'>
-                    <div className='old_Customers'>
-                        <div className='h-[330px] w-[350px] overflow-hidden'>
-                            <Image src={lion} alt='CAMPTREK DIRECTION' style={{ objectFit: 'cover', height: '100%', width: '100%' }} />
-                        </div>
-                        <div className='p-5'>
-                            <p className='font-medium text-[20px] uppercase mb-3'>seniors travelers</p>
-                            <p className='font-light text-[10px] uppercase'>
-                                Our senior-friendly safari packages are <br />
-                                thoughtfully designed for comfort, safety, and <br />
-                                flexibility. Expect shorter travel days, premium <br />
-                                lodges with accessibility in mind, and experienced <br />
-                                guides who cater to your unique needs. Enjoy <br />
-                                breathtaking landscapes and wildlife encounters <br />
-                                without the rush.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div className='honeymoon safaris xl:border'>
-                    <div className='old_Customers'>
-                        <div className='h-[230px] w-[250px] overflow-hidden'>
-                            <Image src={lion} alt='CAMPTREK DIRECTION' style={{ objectFit: 'cover', height: '100%', width: '100%' }} />
-                        </div>
-                        <div className='p-5'>
-                            <p className='font-medium text-[20px] uppercase mb-3'>seniors travelers</p>
-                            <p className='font-light text-[10px] uppercase'>
-                                Our senior-friendly safari packages are <br />
-                                thoughtfully designed for comfort, safety, and <br />
-                                flexibility. Expect shorter travel days, premium <br />
-                                lodges with accessibility in mind, and experienced <br />
-                                guides who cater to your unique needs. Enjoy <br />
-                                breathtaking landscapes and wildlife encounters <br />
-                                without the rush.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
         </div>
     )
 }
