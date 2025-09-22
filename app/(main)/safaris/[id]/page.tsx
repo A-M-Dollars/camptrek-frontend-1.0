@@ -348,32 +348,6 @@ const Individual = () => {
                             />
                         </div>
                     </div>
-                    // ) : (
-                    //     <div className="flex items-center justify-center w-full p-6 sm:p-10">
-                    //         <div className="w-full max-w-md bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 border border-gray-300 rounded-2xl shadow-lg p-6 sm:p-8 text-center">
-
-                    //             {/* Bouncing balls */}
-                    //             <div className="flex justify-center mb-6 space-x-2">
-                    //                 <span className="h-3 w-3 rounded-full bg-gray-900 animate-bounce" />
-                    //                 <span className="h-3 w-3 rounded-full bg-gray-600 animate-bounce [animation-delay:-.2s]" />
-                    //                 <span className="h-3 w-3 rounded-full bg-gray-400 animate-bounce [animation-delay:-.4s]" />
-                    //             </div>
-
-                    //             <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
-                    //                 Login Required
-                    //             </h2>
-
-                    //             <p className="text-sm sm:text-base text-gray-700 mb-4">
-                    //                 You need to log in first to futher view this safari package and continue booking.
-                    //             </p>
-
-                    //             <p className="mb-2 text-gray-800">Press the button below!</p>
-
-                    //             <div className="mr-50">
-                    //                 <LoginButton />
-                    //             </div>
-                    //         </div>
-                    //     </div>
                 )
 
             default:

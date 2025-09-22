@@ -265,7 +265,7 @@ const TripCostForm = ({ adultPrice, kidsPrice, costExcludes, costIncludes, safar
               >
                 Proceed to Pay
               </button>
-              <a href="/contacts-us">
+              <a href="/contacts">
                 <button
                   type='button'
                   className="cursor-pointer bg-[#FD6D0D] uppercase text-[12px] 
