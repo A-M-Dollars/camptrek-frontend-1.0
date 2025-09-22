@@ -177,7 +177,7 @@ function Navbar() {
               ABOUT US
             </Link>
             <Link
-              href={'/contacts-us'}
+              href={'/contacts'}
               className='block py-2 hover:text-gray-300 transition-colors duration-200 text-base font-light'
               onClick={closeMobileMenu}
             >

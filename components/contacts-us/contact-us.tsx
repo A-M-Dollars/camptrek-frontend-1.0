@@ -89,7 +89,7 @@ const ContactForm = () => {
         {/* Contact Form */}
         <form onSubmit={handleSubmit} className="space-y-4 p-6 max-w-md mx-auto bg-white shadow">
           <h1 className="text-2xl uppercase flex justify-center font-bold mb-6 text-[#FD6D0D]">
-            Enqiry Form
+            Enquiry Form
           </h1>
 
           <input
