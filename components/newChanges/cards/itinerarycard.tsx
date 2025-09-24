@@ -21,7 +21,6 @@ const ItineraryCardcontent = () => {
                                         style={{ objectFit: 'cover', height: '100%', width: '100%' }}
                                         className='w-full h-full'
                                         onError={(e) => {
-                                            console.error('Image failed to load:', camptrekpackage.images[0]);
                                             e.currentTarget.style.display = 'none';
                                         }}
                                     />

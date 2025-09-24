@@ -19,7 +19,6 @@ export const extractFilterOptions = (itineraries: Itinerary[]): FilterOptions =>
     }
   }
 
-  console.log('🔧 Extracting options from', itineraries.length, 'itineraries')
 
   // Extract unique locations
   const locations = Array.from(
@@ -64,7 +63,6 @@ export const extractFilterOptions = (itineraries: Itinerary[]): FilterOptions =>
     availableDays: availableDays as number[]
   }
 
-  console.log('✅ Extracted options:', result)
   return result
 }
 

@@ -27,8 +27,6 @@ const ContactForm = () => {
       // Send the form data in the request body
       const res = await baseInstance.post('/customer-inquiry', formData);
       
-      console.log(res);
-
       // Check for successful response (status 200-299)
       if (res.status >= 200 && res.status < 300) {
         setStatus("Message sent successfully ✅");
@@ -37,7 +35,6 @@ const ContactForm = () => {
         setStatus("Failed to send message ❌");
       }
     } catch (error) {
-      console.error("Error sending message:", error);
       setStatus("Error sending message ❌");
     } finally {
       setIsLoading(false);

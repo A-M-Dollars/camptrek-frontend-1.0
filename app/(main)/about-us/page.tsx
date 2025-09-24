@@ -13,7 +13,6 @@ function AboutCamptrek() {
 
   const handleFetch = async () => {
     const response = await baseInstance.get('/blogs')
-    console.log(response.data)
     return response.data
   }
 

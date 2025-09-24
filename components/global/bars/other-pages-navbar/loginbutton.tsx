@@ -28,7 +28,7 @@ const LoginButton2 = () => {
             const res = await baseInstance.post("/user/auth/callback", { code: resData.code })
             setUser(res.data.id, res.data.name, res.data.email, res.data.photo, res.data.access_token, res.data.refresh_token)
         },
-        onError: error => console.error(error),
+        
         flow: "auth-code",
         redirect_uri: "/",
     });

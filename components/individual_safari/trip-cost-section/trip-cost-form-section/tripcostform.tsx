@@ -15,6 +15,7 @@ import { useRouter } from 'next/navigation';
 
 type TripCostFormProps = {
   safariPackageTitle: string;
+  safariPackageDuration: number;
   itineraryId: string;
   adultPrice: number;
   kidsPrice: number;
@@ -22,7 +23,7 @@ type TripCostFormProps = {
   costExcludes: string[];
 }
 
-const TripCostForm = ({ adultPrice, kidsPrice, costExcludes, costIncludes, safariPackageTitle, itineraryId }: TripCostFormProps) => {
+const TripCostForm = ({ adultPrice, kidsPrice, costExcludes, costIncludes, safariPackageTitle, safariPackageDuration, itineraryId }: TripCostFormProps) => {
   const { email, name } = useUserStore()
   const { setData, getTotalPrice } = tripCostSummaryStore()
   const router = useRouter() // ✅ Fixed: Moved to component level
@@ -107,9 +108,29 @@ const TripCostForm = ({ adultPrice, kidsPrice, costExcludes, costIncludes, safar
       currency: data.currency
     }
 
+    // payload expects
+
+    const newPayload = {
+      itinerary_name: safariPackageTitle,
+      itinerary_duration: safariPackageDuration,
+      full_name: data.fullName,
+      email: data.email,
+      phone_number: savedPhoneNumber,
+      start_date: data.startDate,
+      number_of_rooms: data.numberOfRooms,
+      number_of_adults: data.numberOfAdults,
+      number_of_children: data.numberOfKids,
+      total_amount: totalPrice,
+      dietary_needs: data.dietaryNeeds,
+      dietary_info: data.dietInfo,
+      special_requests: data.specialRequest,
+      occasion_info: data.occasionInfo,
+      country: data.country,
+      currency: data.currency,
+    }
+
     try {
-      const response = await baseInstance.post('/customer-inquiry/trip-cost-submittion', payLoad);
-      console.log(`Customer on form: `, response.data);
+      const response = await baseInstance.post('/customer-inquiry/trip-cost-submittion', newPayload);
 
       if (response.status === 201) {
         const finalUrl = redirectUrl;
@@ -121,7 +142,6 @@ const TripCostForm = ({ adultPrice, kidsPrice, costExcludes, costIncludes, safar
       if (newTab) {
         newTab.close();
       }
-      console.error('Payment creation failed:', error)
 
       if (error.code === 'ERR_NETWORK') {
         setSubmitError(
@@ -170,15 +190,34 @@ const TripCostForm = ({ adultPrice, kidsPrice, costExcludes, costIncludes, safar
       currency: data.currency
     }
 
+      // payload expects
+
+    const newPayload = {
+      itinerary_name: safariPackageTitle,
+      itinerary_duration: safariPackageDuration,
+      full_name: data.fullName,
+      email: data.email,
+      phone_number: savedPhoneNumber,
+      start_date: data.startDate,
+      number_of_rooms: data.numberOfRooms,
+      number_of_adults: data.numberOfAdults,
+      number_of_children: data.numberOfKids,
+      total_amount: totalPrice,
+      dietary_needs: data.dietaryNeeds,
+      dietary_info: data.dietInfo,
+      special_requests: data.specialRequest,
+      occasion_info: data.occasionInfo,
+      country: data.country,
+      currency: data.currency,
+    }
+
     try {
-      const response = await baseInstance.post('/customer-inquiry/trip-cost-submittion', payLoad);
-      console.log(`Customer on form: `, response.data);
+      const response = await baseInstance.post('/customer-inquiry/trip-cost-submittion', newPayload);
 
       if (response.status === 201) {
         router.push('/contacts') // ✅ Fixed: Using router from component level
       }
     } catch (error: any) {
-      console.error('Inquiry submission failed:', error)
 
       if (error.code === 'ERR_NETWORK') {
         setSubmitError(
@@ -222,7 +261,7 @@ const TripCostForm = ({ adultPrice, kidsPrice, costExcludes, costIncludes, safar
               />
               <PersonalRequest />
             </div>
-            
+
             <div className='hidden xl:block'>
               <div className='mt-5'>
                 <h1 className='font-bold text-[12px] uppercase text-center'>Booking Details</h1>
@@ -250,7 +289,7 @@ const TripCostForm = ({ adultPrice, kidsPrice, costExcludes, costIncludes, safar
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className='mb-10'>
                     <h1 className='font-bold text-[10px] uppercase'>Price Summary</h1>
                     <div className='mt-2'>
@@ -283,7 +322,7 @@ const TripCostForm = ({ adultPrice, kidsPrice, costExcludes, costIncludes, safar
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className='grid grid-cols-2 gap-2 items-center bg-[#D3D3D3] text-primary p-[40px] divide-x-1 divide-gray-500'>
                     <div className='costIncludes'>
                       <h1 className='font-bold uppercase text-[12px] mb-2 pl-5'>Cost Includes</h1>
@@ -326,7 +365,7 @@ const TripCostForm = ({ adultPrice, kidsPrice, costExcludes, costIncludes, safar
             >
               {isSubmitting ? 'Processing...' : 'Proceed to Pay'}
             </button>
-            
+
             <button
               type="button" // ✅ Added explicit type
               onClick={handleSubmit(onSubmit2)} // ✅ Consistent with first button

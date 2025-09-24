@@ -55,9 +55,7 @@ const SafarisContent = () => {
   // Update filter options when API data changes
   useEffect(() => {
     if (allSafaris?.itineraries && allSafaris.itineraries.length > 0) {
-      console.log('🔄 Updating filter options from API data...')
       const options = extractFilterOptions(allSafaris.itineraries)
-      console.log('📋 Available options:', options)
       setAvailableOptions(options)
     }
   }, [allSafaris?.itineraries, setAvailableOptions])
@@ -65,8 +63,6 @@ const SafarisContent = () => {
   // Filter the itineraries based on filter criteria
   const filteredItineraries = useMemo(() => {
     if (!allSafaris?.itineraries) return []
-
-    console.log('🔍 Applying filters:', { location, accommodationType, days, budget, currency })
 
     return allSafaris.itineraries.filter((itinerary: Itinerary) => {
       const matchesLocation = location
@@ -84,14 +80,6 @@ const SafarisContent = () => {
         : true
 
       const passes = matchesLocation && matchesType && matchesDays
-
-      if (!passes) {
-        console.log('❌ Filtered out:', itinerary.title, {
-          matchesLocation,
-          matchesType,
-          matchesDays,
-        })
-      }
 
       return passes
     })

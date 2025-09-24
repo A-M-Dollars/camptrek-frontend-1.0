@@ -23,7 +23,6 @@ const IndividualBlogs = () => {
 
   const handleFetch = async (id: string) => {
     const response = await baseInstance.get(`/blogs/${id}`)
-    console.log(response.data)
     return response.data
   }
 
@@ -33,8 +32,6 @@ const IndividualBlogs = () => {
     staleTime: 1000 * 60 * 30,
     gcTime: 1000 * 60 * 35,
   })
-
-  console.log(individualBlog)
 
   if (isLoading) {
     return <FloatingCardsLoader />;

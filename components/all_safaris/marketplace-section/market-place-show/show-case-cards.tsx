@@ -27,7 +27,6 @@ const ShowCaseCards = ({ id, discount, title, location, duration, price, images,
 
     const router = useRouter()
     const handleClick = () => {
-        console.log(id)
         router.push(`/safaris/${id}`)
     }
 

@@ -21,7 +21,6 @@ const TravelGuides = () => {
         }
 
         const response = await baseInstance.get('/blogs', { params })
-        console.log(response.data)
         return response.data
     }
 

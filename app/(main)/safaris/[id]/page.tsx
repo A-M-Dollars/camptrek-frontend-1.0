@@ -53,7 +53,6 @@ const Individual = () => {
             staleTime: 1000 * 60 * 30
         })
 
-    console.log(individualPackage)
 
     const adultPrice = individualPackage?.price ?? 0
     const kidsPrice = individualPackage?.price !== undefined ? individualPackage.price * 0.5 : 0
@@ -424,6 +423,7 @@ const Individual = () => {
                                 costIncludes={individualPackage?.cost_inclusive ?? []}
                                 costExcludes={individualPackage?.cost_exclusive ?? []}
                                 safariPackageTitle={individualPackage?.title ?? ''}
+                                safariPackageDuration={individualPackage?.duration ?? 0}
                                 itineraryId={individualPackage?.id ?? ''}
                             />
                         </div>
