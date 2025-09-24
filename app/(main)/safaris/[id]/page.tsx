@@ -1,5 +1,20 @@
 'use client'
 
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion"
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from "@/components/ui/carousel"
+import { Card, CardContent } from "@/components/ui/card"
+
 import { baseInstance } from '@/constants/apis'
 import { Itinerary, ImageProps } from '@/constants/itinerary'
 import SafariDetails from '@/components/individual_safari/trip-overview-section/safari-details'
@@ -12,7 +27,7 @@ import TripCostForm from '@/components/individual_safari/trip-cost-section/trip-
 import ImageShowcase from '@/components/individual_safari/trip-overview-section/images-showcase-carousel'
 import ItineraryGoogleImage from '@/components/individual_safari/trip-itinerary-section/itinerary-google-map'
 import { useUserStore } from '@/store/userstore'
-import LoginButton from '@/components/global/bars/loginbutton'
+import NewItinerarysect from '@/components/newChanges/newItinerarysect'
 
 
 
@@ -243,95 +258,160 @@ const Individual = () => {
 
             case 'Trip Itinerary':
                 // Updated code with scrollable itinerary container
-                if (!activeImages || activeImages.length === 0) {
-                    return (
-                        <div className='xl:grid xl:grid-cols-2 xl:gap-6 xl:items-start mb-10'>
-                            <div className='left w-full xl:sticky xl:top-4'>
-                                <TripItineraryCalltoAction />
-                            </div>
-                            <div className='right w-full xl:max-h-[600px] xl:overflow-y-auto xl:pr-2'> {/* Added scrollable container */}
-                                <TripItineraryContainer
-                                    onImageChange={setActiveImages}
-                                    safari={individualPackage || {} as Itinerary}
-                                    isLoading={isLoading}
-                                    error={!!error}
-                                />
-                            </div>
-                        </div>
-                    )
-                }
+                // if (!activeImages || activeImages.length === 0) {
+                //     return (
+                //         <div className='xl:grid xl:grid-cols-2 xl:gap-6 xl:items-start mb-10'>
+                //             <div className='left w-full xl:sticky xl:top-4'>
+                //                 <TripItineraryCalltoAction />
+                //             </div>
+                //             <div className='right w-full xl:max-h-[600px] xl:overflow-y-auto xl:pr-2'> {/* Added scrollable container */}
+                //                 <TripItineraryContainer
+                //                     onImageChange={setActiveImages}
+                //                     safari={individualPackage || {} as Itinerary}
+                //                     isLoading={isLoading}
+                //                     error={!!error}
+                //                 />
+                //             </div>
+                //         </div>
+                //     )
+                // }
+                // return (
+                //     <div className='xl:grid xl:grid-cols-2 xl:gap-6 xl:items-start mb-10'> {/* Added xl:items-start here too */}
+                //         <div className='left w-full xl:sticky xl:top-4'> {/* Made images sticky */}
+                //             <div>
+                //                 {/* Main Content */}
+                //                 <div className="relative w-full h-[250px] md:h-[515px] xl:h-[515px] mb-1 overflow-hidden shadow-lg">
+                //                     {renderMainContent()}
+                //                 </div>
+
+                //                 {/* Image Counter */}
+                //                 <div className="flex justify-between items-center mb-1 text-[12px] text-gray-600">
+                //                     <span>{currentIndex + 1} of {activeImages.length}</span>
+                //                 </div>
+
+                //                 {/* Thumbnails */}
+                //                 <div className="relative">
+                //                     <div className="overflow-hidden justify-between items-center">
+                //                         <div
+                //                             className="flex gap-3 transition-transform duration-150 ease-in-out"
+                //                             style={{
+                //                                 transform: `translateX(-${startIndex * (96 + 12)}px)`
+                //                             }}
+                //                         >
+                //                             {thumbnails.map((thumb, index) => (
+                //                                 <button
+                //                                     key={index}
+                //                                     onClick={() =>
+                //                                         thumb === 'map' ? setSelectedItem(null) : handleItemSelect(thumb as ImageProps)
+                //                                     }
+                //                                     className={`relative flex-shrink-0 w-24 h-24 overflow-hidden transition-all duration-200 ${thumb !== 'map' &&
+                //                                         selectedItem &&
+                //                                         selectedItem.id === (thumb as ImageProps).id
+                //                                         ? 'scale-105 shadow-lg'
+                //                                         : 'hover:border-gray-400 hover:scale-102'
+                //                                         }`}
+                //                                 >
+                //                                     {renderThumbnail(thumb)}
+                //                                     {thumb !== 'map' &&
+                //                                         selectedItem &&
+                //                                         selectedItem.id === (thumb as ImageProps).id && (
+                //                                             <div className="absolute inset-0 bg-blue-500/20" />
+                //                                         )}
+                //                                 </button>
+                //                             ))}
+                //                         </div>
+                //                     </div>
+                //                 </div>
+
+                //                 {/* Dots */}
+                //                 <div className="flex justify-center mt-3 xl:mt-2 gap-2">
+                //                     {items.map((_, index) => (
+                //                         <button
+                //                             key={index}
+                //                             onClick={() => handleItemSelect(items[index])}
+                //                             className={`w-1 h-1 rounded-full transition-all duration-200 ${index === currentIndex
+                //                                 ? 'bg-black scale-125'
+                //                                 : 'bg-gray-300 hover:bg-gray-400'
+                //                                 }`}
+                //                         />
+                //                     ))}
+                //                 </div>
+                //             </div>
+                //         </div>
+                //         <div className='right w-full xl:max-h-[600px] xl:overflow-y-auto xl:pr-2'> {/* Added scrollable container */}
+                //             <TripItineraryContainer
+                //                 onImageChange={setActiveImages}
+                //                 safari={individualPackage || {} as Itinerary}
+                //                 isLoading={isLoading}
+                //                 error={!!error}
+                //             />
+                //         </div>
+                //     </div>
+                // )
                 return (
-                    <div className='xl:grid xl:grid-cols-2 xl:gap-6 xl:items-start mb-10'> {/* Added xl:items-start here too */}
-                        <div className='left w-full xl:sticky xl:top-4'> {/* Made images sticky */}
-                            <div>
-                                {/* Main Content */}
-                                <div className="relative w-full h-[250px] md:h-[515px] xl:h-[515px] mb-1 overflow-hidden shadow-lg">
-                                    {renderMainContent()}
-                                </div>
+                    <div>
+                        {individualPackage?.days && individualPackage?.days.length > 0 ? (
+                            individualPackage.days.map((day) => (
+                                <div className="xl:pl-50 xl:pr-50" key={day.id}>
+                                    <Accordion
+                                        type="single"
+                                        collapsible
+                                        className="w-full"
+                                        defaultValue="item-1"
+                                    >
+                                        <AccordionItem value="item-1">
+                                            <AccordionTrigger>
+                                                Day {day.day_number} : {day.title}
+                                            </AccordionTrigger>
+                                            <AccordionContent className="flex flex-col gap-2">
+                                                {/* related images */}
+                                                {/* Details */}
+                                                <div className="itinerary-description">
+                                                    <p className="text-[12px] xl:text-[13px] text-gray-600">
+                                                        {day.details}
+                                                    </p>
+                                                </div>
 
-                                {/* Image Counter */}
-                                <div className="flex justify-between items-center mb-1 text-[12px] text-gray-600">
-                                    <span>{currentIndex + 1} of {activeImages.length}</span>
-                                </div>
+                                                {/* Accommodation images */}
+                                                <div className="accomodation">
+                                                    <h1 className="mb-2 text-sm font-medium">Accommodation</h1>
 
-                                {/* Thumbnails */}
-                                <div className="relative">
-                                    <div className="overflow-hidden justify-between items-center">
-                                        <div
-                                            className="flex gap-3 transition-transform duration-150 ease-in-out"
-                                            style={{
-                                                transform: `translateX(-${startIndex * (96 + 12)}px)`
-                                            }}
-                                        >
-                                            {thumbnails.map((thumb, index) => (
-                                                <button
-                                                    key={index}
-                                                    onClick={() =>
-                                                        thumb === 'map' ? setSelectedItem(null) : handleItemSelect(thumb as ImageProps)
-                                                    }
-                                                    className={`relative flex-shrink-0 w-24 h-24 overflow-hidden transition-all duration-200 ${thumb !== 'map' &&
-                                                        selectedItem &&
-                                                        selectedItem.id === (thumb as ImageProps).id
-                                                        ? 'scale-105 shadow-lg'
-                                                        : 'hover:border-gray-400 hover:scale-102'
-                                                        }`}
-                                                >
-                                                    {renderThumbnail(thumb)}
-                                                    {thumb !== 'map' &&
-                                                        selectedItem &&
-                                                        selectedItem.id === (thumb as ImageProps).id && (
-                                                            <div className="absolute inset-0 bg-blue-500/20" />
-                                                        )}
-                                                </button>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
+                                                    {day.images && day.images.length > 0 ? (
+                                                        <Carousel opts={{ align: "start" }} className="w-full relative">
+                                                            <CarouselContent>
+                                                                {day.images.map((image) => (
+                                                                    <CarouselItem
+                                                                        key={image.id}
+                                                                        className="md:basis-1/2 lg:basis-1/3 w-[150px] h-[350px]"
+                                                                    >
+                                                                        <img
+                                                                            src={image.image_url}
+                                                                            className="w-full h-full object-cover"
+                                                                            alt=""
+                                                                        />
+                                                                    </CarouselItem>
+                                                                ))}
+                                                            </CarouselContent>
 
-                                {/* Dots */}
-                                <div className="flex justify-center mt-3 xl:mt-2 gap-2">
-                                    {items.map((_, index) => (
-                                        <button
-                                            key={index}
-                                            onClick={() => handleItemSelect(items[index])}
-                                            className={`w-1 h-1 rounded-full transition-all duration-200 ${index === currentIndex
-                                                ? 'bg-black scale-125'
-                                                : 'bg-gray-300 hover:bg-gray-400'
-                                                }`}
-                                        />
-                                    ))}
+                                                            {/* Small, side-aligned buttons */}
+                                                            <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-sm" />
+                                                            <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-sm" />
+                                                        </Carousel>
+                                                    ) : (
+                                                        <p>No images available</p>
+                                                    )}
+                                                </div>
+                                            </AccordionContent>
+                                        </AccordionItem>
+                                        <hr />
+                                    </Accordion>
                                 </div>
-                            </div>
-                        </div>
-                        <div className='right w-full xl:max-h-[600px] xl:overflow-y-auto xl:pr-2'> {/* Added scrollable container */}
-                            <TripItineraryContainer
-                                onImageChange={setActiveImages}
-                                safari={individualPackage || {} as Itinerary}
-                                isLoading={isLoading}
-                                error={!!error}
-                            />
-                        </div>
+                            ))
+                        ) : (
+                            <p>No itinerary days available.</p>
+                        )}
                     </div>
+
                 )
 
             case 'Trip Cost Summary':
