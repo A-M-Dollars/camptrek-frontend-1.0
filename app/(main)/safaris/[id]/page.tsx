@@ -373,7 +373,7 @@ const Individual = () => {
 
                                                 {/* Accommodation images */}
                                                 <div className="accomodation">
-                                                    <h1 className="mb-2 text-sm font-medium">Accommodation</h1>
+                                                    {/* <h1 className="mb-2 text-sm font-medium">Accommodation</h1> */}
 
                                                     {day.images && day.images.length > 0 ? (
                                                         <Carousel opts={{ align: "start" }} className="w-full relative">
