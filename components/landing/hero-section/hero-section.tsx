@@ -14,16 +14,16 @@ function Herosection({ scrollToAbout }: HeroProps) {
             <div className="overflow-x-hidden relative w-screen ">
                 {/* Background Video */}
                 <video
-                    className="
-                    absolute brightness-60 top-0 left-0 min-w-full
-                    min-h-full lg:h-[40%] object-cover -z-10
-                    "
+                    className="absolute brightness-60 top-0 left-0 min-w-full
+                    min-h-full lg:h-[40%] object-cover -z-10"
                     src="/hero/herovid.mp4"
                     autoPlay
                     muted
                     loop
                     playsInline
+                    poster={bannerPhoto.src}   // 👈 shows until video is loaded
                 />
+
 
                 {/* Content on top */}
                 <div className="relative z-10 mb-10 xl:mb-0  h-full text-black">
