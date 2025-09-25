@@ -1,0 +1,112 @@
+[
+  {
+    "title": "13-Day Spirit of Kenya and Tanzania Relaxed Luxury Safari",
+    "overview": "A family-themed 13-day Kenya-Tanzania circuit exposes you to some of the best game parks in East Africa filled with abundant wildlife and diverse cultures and landscapes. The highlights include Amboseli National Park, Lake Nakuru, Masai Mara in Kenya, Serengeti, Ngorongoro, and Lake Manyara in Tanzania. You'll discover and get a chance to trail the famous wildebeest migration from Masai Mara, Serengeti to Ngorongoro ending your safari in Nairobi Kenya having explored all the Big Five parks",
+    "duration": 13,
+    "price": 8053,
+    "map": {
+      "image_url": "https://res.cloudinary.com/mindfirm/image/upload/v1758806286/new%20itinerary/wrhdsbzecuvum6v9sj5a.png",
+      "image_public_id": "new itinerary/wrhdsbzecuvum6v9sj5a"
+    },
+    "images": [
+      {
+        "image": {
+          "url": "https://res.cloudinary.com/mindfirm/image/upload/v1758806280/new%20itinerary/rgobjta9lmuafoxe5chg.png",
+          "public_id": "new itinerary/rgobjta9lmuafoxe5chg"
+        }
+      },
+      {
+        "image": {
+          "url": "https://res.cloudinary.com/mindfirm/image/upload/v1758806282/new%20itinerary/xsebqsnybzwjl7hszpo4.png",
+          "public_id": "new itinerary/xsebqsnybzwjl7hszpo4"
+        }
+      },
+      {
+        "image": {
+          "url": "https://res.cloudinary.com/mindfirm/image/upload/v1758806282/new%20itinerary/xdie5jmnxrtr1tnjmqpt.png",
+          "public_id": "new itinerary/xdie5jmnxrtr1tnjmqpt"
+        }
+      },
+      {
+        "image": {
+          "url": "https://res.cloudinary.com/mindfirm/image/upload/v1758806284/new%20itinerary/f8trxsazmx53gco9zzsl.png",
+          "public_id": "new itinerary/f8trxsazmx53gco9zzsl"
+        }
+      }
+    ],
+    "arrival_city": "Nairobi",
+    "departure_city": "Nairobi",
+    "days": [
+      {
+        "day_number": 1,
+        "title": "Arrival to the city hotel- Nairobi 15Km 30min",
+        "details": "Our company representative will pick you up from the airport or your accommodation facility. After a short briefing about the safari, you will be handed over to your experienced driver guide in the morning for a scenic drive southeast towards Amboseli National Park, arriving in good time for lunch. You'll embark on your first-afternoon game drive exploring this acacia woodland, freshwater swamps, scrub brush, and open plains in search of wildlife returning at sunset for dinner and your overnight stay. Amboseli National Park (392sq km) is famously known for the breathtaking view of Mount Kilimanjaro, the tallest freestanding mountain on earth and the tallest in Africa (5895m). Amboseli is also an elephant’s paradise where the massive African savannah elephants roam from swamp to swamp grazing all day. Because of the abundance of water and pasture, other animals to be spotted here are cheetahs, zebras, giraffes, gnus, gazelles, hippos, and many others.",
+        "images": [
+          {
+            "image": {
+              "url": "https://res.cloudinary.com/mindfirm/image/upload/v1758806287/new%20itinerary/nuce2owc837p6qbi1aeh.png",
+              "public_id": "new itinerary/nuce2owc837p6qbi1aeh"
+            }
+          },
+          {
+            "image": {
+              "url": "https://res.cloudinary.com/mindfirm/image/upload/v1758806288/new%20itinerary/imlmntaom9pstk6r9ldk.png",
+              "public_id": "new itinerary/imlmntaom9pstk6r9ldk"
+            }
+          },
+          {
+            "image": {
+              "url": "https://res.cloudinary.com/mindfirm/image/upload/v1758806289/new%20itinerary/goqv2i2jnlw7yn7z4jdq.png",
+              "public_id": "new itinerary/goqv2i2jnlw7yn7z4jdq"
+            }
+          }
+        ],
+        "hotel_detail": {
+          "name": "Sarova Whitesands Beach Resort & Spa Mombasa",
+          "url": "https://www.sarovahotels.com/whitesands-mombasa/",
+          "images": [
+            {
+              "image": {
+                "url": "https://res.cloudinary.com/mindfirm/image/upload/v1758806290/new%20itinerary/q0yrn3vf2y3uqkf8poyj.png",
+                "public_id": "new itinerary/q0yrn3vf2y3uqkf8poyj"
+              }
+            },
+            {
+              "image": {
+                "url": "https://res.cloudinary.com/mindfirm/image/upload/v1758806291/new%20itinerary/go7ya1u7ho52trgd0wkh.png",
+                "public_id": "new itinerary/go7ya1u7ho52trgd0wkh"
+              }
+            },
+            {
+              "image": {
+                "url": "https://res.cloudinary.com/mindfirm/image/upload/v1758806292/new%20itinerary/jqazpwgir37n74uskrto.png",
+                "public_id": "new itinerary/jqazpwgir37n74uskrto"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "accommodation": "Mid",
+    "location": "Kenya",
+    "discount": 3,
+    "tags": [
+      {
+        "name": "Suitable for senoirs"
+      }
+    ],
+    "cost_inclusive": [
+      "Park fees (for non-residents)",
+      "All activities mentioned (unless clearly labeled as optional)",
+      "Meals (as specified in the day-by-day description)",
+      "All accommodation mentioned (unless clearly labeled as optional upgrade)",
+      "Roundtrip airport transfer"
+    ],
+    "cost_exclusive": [
+      "International flights (from/to the client's home country)",
+      "Additional accommodation before and at the end of the tour",
+      "Tips: tipping guideline of No tip expected per person per day for the guide and crew",
+      "Government imposed increase of taxes and/or park fees"
+    ]
+  }
+]

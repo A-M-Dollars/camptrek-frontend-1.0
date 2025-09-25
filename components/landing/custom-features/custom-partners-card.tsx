@@ -26,13 +26,13 @@ const Custompartnercard = () => {
       {duplicatedPartners.map((partner, index) => (
         <div
           key={index}
-          className="embla__slide flex-[0_0_180px] min-w-0 flex justify-center items-center"
+          className="embla__slide flex-[0_0_180px] min-w-0 flex justify-center items-center "
         >
           <Image
             src={partner.image}
             alt={partner.name}
-            width={120}
-            className="object-contain h-auto"
+            width={120} height={120}
+            className="object-contain h-[120px] w-[120px]"
           />
         </div>
       ))}

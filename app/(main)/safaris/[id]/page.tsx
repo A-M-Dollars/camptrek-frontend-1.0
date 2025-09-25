@@ -13,13 +13,10 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
-import { Card, CardContent } from "@/components/ui/card"
-
 import { baseInstance } from '@/constants/apis'
 import { Itinerary, ImageProps } from '@/constants/itinerary'
 import SafariDetails from '@/components/individual_safari/trip-overview-section/safari-details'
-import TripItineraryContainer, { TripItineraryCalltoAction } from '@/components/individual_safari/trip-itinerary-section/trip-itinerary'
-import { useQuery } from '@tanstack/react-query'
+//                           sssssssssssssssssssssssssssimport { useQuery } from '@tanstack/react-query'
 import { useParams } from 'next/navigation'
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image'
@@ -27,7 +24,7 @@ import TripCostForm from '@/components/individual_safari/trip-cost-section/trip-
 import ImageShowcase from '@/components/individual_safari/trip-overview-section/images-showcase-carousel'
 import ItineraryGoogleImage from '@/components/individual_safari/trip-itinerary-section/itinerary-google-map'
 import { useUserStore } from '@/store/userstore'
-import NewItinerarysect from '@/components/newChanges/newItinerarysect'
+import { useQuery } from "@tanstack/react-query"
 
 
 
@@ -350,7 +347,7 @@ const Individual = () => {
                 return (
                     <div>
                         {individualPackage?.days && individualPackage?.days.length > 0 ? (
-                            individualPackage.days.map((day) => (
+                            individualPackage.days.map((day:any) => (
                                 <div className="xl:pl-50 xl:pr-50" key={day.id}>
                                     <Accordion
                                         type="single"
@@ -378,7 +375,7 @@ const Individual = () => {
                                                     {day.images && day.images.length > 0 ? (
                                                         <Carousel opts={{ align: "start" }} className="w-full relative">
                                                             <CarouselContent>
-                                                                {day.images.map((image) => (
+                                                                {day.images.map((image: any) => (
                                                                     <CarouselItem
                                                                         key={image.id}
                                                                         className="md:basis-1/2 lg:basis-1/3 w-[150px] h-[350px]"
