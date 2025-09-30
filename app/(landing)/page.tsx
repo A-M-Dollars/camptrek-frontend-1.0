@@ -36,7 +36,7 @@ const Landing = () => {
 
   return (
     <div className='overflow-x-hidden'>
-      <div className='h-[40vh] xl:h-[65vh]'>
+      <div className='h-[40%] xl:h-[65%]'>
         <Herosection
           scrollToAbout={() => aboutRef.current?.scrollIntoView({ behavior: "smooth" })}
         />
