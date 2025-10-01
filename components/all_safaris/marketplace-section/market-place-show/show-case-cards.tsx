@@ -22,13 +22,13 @@ const ShowCaseCards = ({ id, discount, title, location, duration, price, images,
 
 
 
-    const truncateWords = (text: string, wordlimit = 10) => {
+    const truncateWords = (text: string, wordlimit = 20) => {
         const words = text.split(' ');
         if (words.length <= wordlimit) return text;
         return words.slice(0, wordlimit).join(' ') + '...';
     }
 
-    const tripDescription = truncateWords(overview, 18);
+    const tripDescription = truncateWords(overview, 30);
 
     const router = useRouter()
     const handleClick = () => {
@@ -37,27 +37,23 @@ const ShowCaseCards = ({ id, discount, title, location, duration, price, images,
 
     return (
         <div onClick={handleClick} className='border mt-4 cursor-pointer'>
-            <div
-                className="relative bg-cover bg-center h-[200px] xl:h-[150px] w-full"
-                style={{ backgroundImage: `url(${imageUrl})` }}
-            >
+             <div className="relative bg-cover bg-center h-[258px] w-full"
+                style={{ backgroundImage: `url(${images[0].image.url})` }}>
                 <div className="absolute top-0 right-0 m-2">
-                    {discount && discount > 0 && (
-                        <p className="bg-[#FD6D0D] text-white px-3 py-1 text-[10px]">
-                            {discount}% OFF
-                        </p>
-                    )}
+                    <p className="bg-[#FD6D0D] text-white text-sm px-3 py-1">
+                        {discount}% OFF
+                    </p>
                 </div>
             </div>
 
             <div className='justify-between items-center p-4'>
-                <div className="w-full mb-1">
+                <div className="w-full mb-4">
                     <p className='mr-4 font-semibold text-[12px] mb-1'>{title}</p>
-                    <p className='text-[10px] opacity-[75%] font-light ' >{tripDescription}</p>
+                    <p className='text-[12px] opacity-[75%] font-light ' >{tripDescription}</p>
                 </div>
-                <p className='text-[primary] text-[10px] font-light mb-1'>{location}</p>
+                <p className='text-[primary] text-[12px] font-light mb-1'>{location}</p>
                 <div className='flex flex-row justify-between items-center'>
-                    <div className='flex flex-row items-center text-[10px] font-light opacity-[75%]'>
+                    <div className='flex flex-row items-center text-[12px] font-light opacity-[75%]'>
                         <p>{duration} Days</p>
                     </div>
                 </div>
@@ -65,11 +61,11 @@ const ShowCaseCards = ({ id, discount, title, location, duration, price, images,
             <hr className='m-3' />
             <div className='flex flex-row justify-between items-center p-4'>
                 <div>
-                    <p className='text-[14px] font-semibold'>{convertedPrice} {currency}</p>
+                    <p className='text-[18px] font-semibold'>{convertedPrice} {currency}</p>
                     <p className='font-light text-[10px]'>PER PERSON</p>
                 </div>
                 <div>
-                    <button className='bg-[#FD6D0D] text-white text-[10px] font-light p-2 w-[80px] h-[30px] cursor-pointer'>BOOK NOW</button>
+                    <button className='bg-[#FD6D0D] text-[12px] xl:text-case font-light p-2 w-[100px] xl:w-[118px] xl:h-[39px] cursor-pointer text-white'>BOOK NOW</button>
                 </div>
             </div>
         </div>

@@ -13,7 +13,6 @@ import FilterBarSection from '@/components/all_safaris/filter-bar-section/filter
 import { useFilterStore } from '@/store/filterstore'
 import { extractFilterOptions } from '@/constants/extracthelper'
 import { useUserStore } from '@/store/userstore'
-import type { NextApiRequest, NextApiResponse } from "next"
 
 const SafarisContent = () => {
   const isAuthenticated = useUserStore(state => state.isAuthenticated)
@@ -256,7 +255,7 @@ const SafarisContent = () => {
 }
 
 // Main component wrapped with Suspense
-const SafarisPage = (req: NextApiRequest, res: NextApiResponse) => {
+const SafarisPage = () => {
   return (
     <Suspense fallback={
       <div className="flex justify-center items-center min-h-screen">

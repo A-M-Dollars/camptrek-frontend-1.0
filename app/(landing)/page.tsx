@@ -9,7 +9,7 @@ import { baseInstance } from '@/constants/apis'
 import { useParams } from 'next/navigation'
 import { useQuery } from '@tanstack/react-query'
 import React, { useRef } from 'react'
-import { Itinerary } from '@/constants/itinerary'
+import { ItineraryProp} from '@/constants/itinerary'
 import Link from 'next/link'
 
 const Landing = () => {
@@ -65,7 +65,7 @@ const Landing = () => {
             </Link>
             <CustomCarousel>
               {tours?.itineraries && tours.itineraries.length > 0 ? (
-                tours.itineraries.map((tour: Itinerary) => (
+                tours.itineraries.map((tour: ItineraryProp) => (
                   <CustomCard key={tour.id} {...tour} />
                 ))
               ) : (
