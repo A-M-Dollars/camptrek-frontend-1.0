@@ -1,6 +1,6 @@
 // src/utils/extractFilterOptions.ts
 
-import { Itinerary } from '@/constants/itinerary'
+import { ItineraryProp } from '@/constants/itinerary'
 
 // Type for the options we'll extract
 export type FilterOptions = {
@@ -10,7 +10,7 @@ export type FilterOptions = {
 }
 
 // Helper function to extract unique filter options from API data
-export const extractFilterOptions = (itineraries: Itinerary[]): FilterOptions => {
+export const extractFilterOptions = (itineraries: ItineraryProp[]): FilterOptions => {
   if (!itineraries || itineraries.length === 0) {
     return {
       locations: [],
@@ -67,14 +67,14 @@ export const extractFilterOptions = (itineraries: Itinerary[]): FilterOptions =>
 }
 
 // Optional: Export individual extractors if you need them separately
-export const extractUniqueLocations = (itineraries: Itinerary[]): string[] => {
+export const extractUniqueLocations = (itineraries: ItineraryProp[]): string[] => {
   return extractFilterOptions(itineraries).locations
 }
 
-export const extractUniqueAccommodationTypes = (itineraries: Itinerary[]): string[] => {
+export const extractUniqueAccommodationTypes = (itineraries: ItineraryProp[]): string[] => {
   return extractFilterOptions(itineraries).accommodationTypes
 }
 
-export const extractUniqueDays = (itineraries: Itinerary[]): number[] => {
+export const extractUniqueDays = (itineraries: ItineraryProp[]): number[] => {
   return extractFilterOptions(itineraries).availableDays
 }
