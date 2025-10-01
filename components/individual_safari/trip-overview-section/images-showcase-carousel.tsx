@@ -1,138 +1,136 @@
-import { Itinerary } from '@/constants/itinerary'
+import { ItineraryProp } from '@/constants/itinerary'
 import React, { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
-
+import ItineraryGoogleImage from '@/components/individual_safari/trip-itinerary-section/itinerary-google-map';
 
 type ImageShowCaseProp = {
     isLoading?: boolean;
     error?: boolean;
-    images: Itinerary['images'];
+    images: ItineraryProp['images'];
+    map?: ItineraryProp['map'];
 }
 
-const ImageShowcase = ({ images, isLoading, error }: ImageShowCaseProp) => {
-
-    const [selectedImage, setSelectedImage] = useState<typeof images[0] | null>(null);
+const ImageShowcase = ({ images, map, isLoading, error }: ImageShowCaseProp) => {
+    const [selectedIndex, setSelectedIndex] = useState(0);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-    // Set first image once images load
+    // Auto-cycle every 5s
     useEffect(() => {
-        if (images.length > 0 && !selectedImage) {
-            setSelectedImage(images[0]);
-        }
-    }, [images, selectedImage]);
+        if (images.length === 0 && !map) return;
+        if (intervalRef.current) clearInterval(intervalRef.current);
 
-    useEffect(() => {
-        if (selectedImage && images.length > 0) {
-            const currentIndex = images.findIndex(img => img.id === selectedImage.id);
-
-            const resetInterval = () => {
-                if (intervalRef.current) clearInterval(intervalRef.current);
-                intervalRef.current = setInterval(() => {
-                    const nextIndex = (currentIndex + 1) % images.length;
-                    setSelectedImage(images[nextIndex]);
-                }, 5000);
-            };
-
-            resetInterval();
-        }
+        intervalRef.current = setInterval(() => {
+            setSelectedIndex((prev) => {
+                const total = images.length + (map ? 1 : 0);
+                return (prev + 1) % total;
+            });
+        }, 5000);
 
         return () => {
-            if (intervalRef.current) {
-                clearInterval(intervalRef.current);
-            }
+            if (intervalRef.current) clearInterval(intervalRef.current);
         };
-    }, [selectedImage, images]);
+    }, [images, map]);
 
-    // Loading states
-    // You can pass a loading state as a prop like this:
-    // const ImageShowcase = ({ images, isLoading }: Itinerary & { isLoading?: boolean }) => {
-    // Then use isLoading below as needed.
     if (isLoading) {
         return <div className="w-full h-[515px] bg-gray-200 animate-pulse rounded"></div>;
     }
     if (error) {
-        return <div className="w-full h-[515px] bg-gray-100 flex items-center justify-center text-gray-500">Error loading images</div>;
+        return <div className="w-full h-[515px] flex items-center justify-center text-gray-500">Error loading images</div>;
     }
 
-    if (images.length === 0) {
-        return <div className="w-full h-[515px] bg-gray-100 flex items-center justify-center text-gray-500">No images available</div>;
-    }
-
-    if (!selectedImage) {
-        return <div className="w-full h-[515px] bg-gray-200 animate-pulse rounded"></div>;
-    }
-
-    const currentIndex = images.findIndex(img => img.id === selectedImage.id);
-    const visibleThumbnails = Math.floor(700 / (96 + 12));
-    const startIndex = Math.max(0, Math.min(currentIndex - Math.floor(visibleThumbnails / 2), images.length - visibleThumbnails));
-
-    const handleImageSelect = (image: typeof images[0]) => {
-        setSelectedImage(image);
-        if (intervalRef.current) {
-            clearInterval(intervalRef.current);
-        }
-    };
+    const totalItems = images.length + (map ? 1 : 0);
 
     return (
         <div>
-            {/* Main Image */}
-            <div className="
-            relative w-full h-[250px] md:h-[515px] xl:h-[515px] mb-1 overflow-hidden shadow-lg
-            ">
-                <Image
-                    src={selectedImage.image_url}
-                    alt="Gallery Image"
-                    fill
-                    className="object-cover transition-opacity duration-300"
-                    priority
-                />
+            {/* Main Image / Map */}
+            <div className="relative w-full h-[250px] md:h-[515px] xl:h-[515px] mb-1 overflow-hidden shadow-lg">
+                {map && selectedIndex === 0 ? (
+                    // Show the map if it's the first slide
+                    <Image
+                        src={map.image_url}
+                        alt="Map"
+                        fill
+                        className="object-cover transition-opacity duration-300"
+                        priority
+                    />
+                ) : (
+                    images[selectedIndex - (map ? 1 : 0)] && (
+                        <Image
+                            src={images[selectedIndex - (map ? 1 : 0)].image.url}
+                            alt="Gallery Image"
+                            fill
+                            className="object-cover transition-opacity duration-300"
+                            priority
+                        />
+                    )
+                )}
             </div>
+
 
             {/* Counter */}
             <div className="flex justify-between items-center mb-1 text-[12px] text-gray-600">
-                <span>{currentIndex + 1} of {images.length}</span>
+                <span>{selectedIndex + 1} of {totalItems}</span>
             </div>
 
             {/* Thumbnails */}
-            <div className="relative">
-                <div className="overflow-hidden justify-between items-center">
-                    <div
-                        className="flex gap-3 transition-transform duration-300 ease-in-out"
-                        style={{
-                            transform: `translateX(-${startIndex * (96 + 12)}px)`
-                        }}
-                    >
-                        {images.map(image => (
-                            <button
-                                key={image.id}
-                                onClick={() => handleImageSelect(image)}
-                                className={`relative flex-shrink-0 w-24 h-24 overflow-hidden transition-all duration-200 ${selectedImage.id === image.id
-                                    ? 'scale-105 shadow-lg'
-                                    : 'hover:border-gray-400 hover:scale-102'
-                                    }`}
-                            >
-                                <Image
-                                    src={image.image_url}
-                                    alt="Gallery Image Thumbnail"
-                                    fill
-                                    className="object-cover"
-                                />
-                                {selectedImage.id === image.id && (
-                                    <div className="absolute inset-0 bg-blue-500/20" />
-                                )}
-                            </button>
-                        ))}
-                    </div>
+            <div className="relative overflow-hidden">
+                <div
+                    className="flex gap-3 transition-transform duration-300 ease-in-out"
+                    style={{
+                        transform: `translateX(-${Math.max(0, selectedIndex - 2) * (96 + 12)}px)`
+                    }}
+                >
+                    {/* Map Thumbnail */}
+                    {map && (
+                        <button
+                            onClick={() => setSelectedIndex(images.length)}
+                            className={`relative flex-shrink-0 w-24 h-24 overflow-hidden flex items-center justify-center border transition-all duration-200 ${selectedIndex === images.length
+                                ? 'scale-105 shadow-lg border-blue-500'
+                                : 'hover:border-gray-400 hover:scale-102'
+                                }`}
+                        >
+                            <Image
+                                src={map.image_url}
+                                alt="Gallery Thumbnail"
+                                fill
+                                className="object-cover"
+                            />
+
+                        </button>
+                    )}
+
+                    {/* other images */}
+
+                    {images.map((img, idx) => (
+                        <button
+                            key={img.image.public_id}
+                            onClick={() => setSelectedIndex(idx)}
+                            className={`relative flex-shrink-0 w-24 h-24 overflow-hidden transition-all duration-200 ${selectedIndex === idx
+                                ? 'scale-105 shadow-lg'
+                                : 'hover:border-gray-400 hover:scale-102'
+                                }`}
+                        >
+                            <Image
+                                src={img.image.url}
+                                alt="Gallery Thumbnail"
+                                fill
+                                className="object-cover"
+                            />
+                            {selectedIndex === idx && (
+                                <div className="absolute inset-0 bg-blue-500/20" />
+                            )}
+                        </button>
+                    ))}
                 </div>
             </div>
 
             {/* Dots */}
             <div className="flex justify-center mt-2 gap-2">
-                {images.map((_, index) => (
+                {Array.from({ length: totalItems }).map((_, idx) => (
                     <button
-                        key={index}
-                        onClick={() => handleImageSelect(images[index])}
-                        className={`w-1 h-1 rounded-full transition-all duration-200 ${index === currentIndex
+                        key={idx}
+                        onClick={() => setSelectedIndex(idx)}
+                        className={`w-1 h-1 rounded-full transition-all duration-200 ${idx === selectedIndex
                             ? 'bg-black scale-125'
                             : 'bg-gray-300 hover:bg-gray-400'
                             }`}
@@ -141,6 +139,6 @@ const ImageShowcase = ({ images, isLoading, error }: ImageShowCaseProp) => {
             </div>
         </div>
     );
-}
+};
 
-export default ImageShowcase
+export default ImageShowcase;

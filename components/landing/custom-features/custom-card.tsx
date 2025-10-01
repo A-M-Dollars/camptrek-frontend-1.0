@@ -3,10 +3,10 @@
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { ratingStar, clockIcon } from '@/public/svgs/svgs-file'
-import { Itinerary } from '@/constants/itinerary'
+import { ItineraryProp } from '@/constants/itinerary'
 
 
-const CustomCard = ({ images, title, location, duration, price, discount, id }: Itinerary) => {
+const CustomCard = ({ images, title, location, duration, price, discount, id }: ItineraryProp) => {
     const router = useRouter()
     const handleClick = () => {
         router.push(`/safaris/${id}`)
@@ -15,7 +15,7 @@ const CustomCard = ({ images, title, location, duration, price, discount, id }: 
     return (
         <div onClick={handleClick} className='cursor-pointer border border-gray-500 md:w-[10cm]'>
             <div className="relative bg-cover bg-center h-[258px] w-full"
-                style={{ backgroundImage: `url(${images[0].image_url})` }}>
+                style={{ backgroundImage: `url(${images[0].image.url})` }}>
                 <div className="absolute top-0 right-0 m-2">
                     <p className="bg-[#FD6D0D] text-white text-sm px-3 py-1">
                         {discount}% OFF

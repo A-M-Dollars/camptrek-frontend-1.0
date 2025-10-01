@@ -1,38 +1,61 @@
 import { Dispatch, SetStateAction } from "react";
 
-
-export type ImageProps = {
-  id: string
-  image_url: string
-}
-
-export type DaysProps = {
-  id: string
-  day_number: number
-  title: string
-  details: string
-  images: ImageProps[]
-}
-
-export type Itinerary = {
+// Itinerary Interfaces
+export type ItineraryProp = {
   id: string
   title: string
-  duration: number
   overview: string
-  images: ImageProps[]
-  days: DaysProps[]
+  duration: number
   price: number
-  tags: string
+  map: MapProp
+  images: ImagesProp[]
   arrival_city: string
   departure_city: string
+  days: DaysProp[]
   accommodation: string
   location: string
   discount: number
-  cost_inclusive: string[]
-  cost_exclusive: string[]
+  tags: ItemProp[]
+  cost_inclusive: ItemProp[]
+  cost_exclusive: ItemProp[]
 }
 
-export type ItineraryProps = {
-  safariData: Itinerary
-  onImageChange: Dispatch<SetStateAction<ImageProps[] | null>> 
+export type MapProp = {
+  image_url: string
+  image_public_id: string
+}
+
+export type ImageProp = {
+  url: string
+  public_id: string
+}
+
+export type ItemProp = {
+  item: string
+}
+
+export type ImagesProp = {
+  image: ImageProp
+}
+
+export type DaysProp = {
+  day_number: number
+  title: string
+  details: string
+  images: ImagesProp[]
+  hotel_detail: HotelProp
+}
+
+export type HotelProp = {
+  name: string
+  url: string
+  images: ImagesProp[]
+}
+
+export type ListItineraryProp = {
+  itineraries: ItineraryProp[]
+  total: number
+  pages: number
+  current_page: number
+  page_size: number
 }

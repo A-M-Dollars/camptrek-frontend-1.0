@@ -1,9 +1,14 @@
+'use client'
+
 import React from 'react'
-import { Itinerary } from '@/constants/itinerary'
+import { ItineraryProp } from '@/constants/itinerary'
 import { useRouter } from 'next/navigation'
 import { useFilterStore } from '@/store/filterstore'
+import fallbackimage from '@/public/images/bg-5.jpeg'
 
-const ShowCaseCards = ({ id, discount, title, location, duration, price, images, overview }: Itinerary) => {
+const ShowCaseCards = ({ id, discount, title, location, duration, price, images, overview }: ItineraryProp) => {
+
+    const imageUrl = images?.[0]?.image?.url || fallbackimage
 
     const currency = useFilterStore(state => state.currency)
     const rates = {
@@ -32,8 +37,10 @@ const ShowCaseCards = ({ id, discount, title, location, duration, price, images,
 
     return (
         <div onClick={handleClick} className='border mt-4 cursor-pointer'>
-            <div className="relative bg-cover bg-center h-[200px] xl:h-[150px] w-full"
-                style={{ backgroundImage: `url(${images[0].image_url})` }}>
+            <div
+                className="relative bg-cover bg-center h-[200px] xl:h-[150px] w-full"
+                style={{ backgroundImage: `url(${imageUrl})` }}
+            >
                 <div className="absolute top-0 right-0 m-2">
                     {discount && discount > 0 && (
                         <p className="bg-[#FD6D0D] text-white px-3 py-1 text-[10px]">

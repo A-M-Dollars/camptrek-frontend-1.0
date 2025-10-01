@@ -1,20 +1,19 @@
 'use client'
 
-
 import { Suspense } from 'react'
-import {CompassLoader} from '@/components/about-us/travel-guides/loaders/loaders'
+import { CompassLoader } from '@/components/about-us/travel-guides/loaders/loaders'
 import React, { useMemo, useEffect, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import ShowcaseCardsSkeleton from '@/components/all_safaris/marketplace-section/marketplace-section-skeleton/skeleton-show-cards'
 import { baseInstance } from '@/constants/apis'
 import { useParams, useRouter, useSearchParams } from 'next/navigation'
 import ShowCaseCards from '@/components/all_safaris/marketplace-section/market-place-show/show-case-cards'
-import { Itinerary } from '@/constants/itinerary'
+import { ListItineraryProp, ItineraryProp } from '@/constants/itinerary'
 import FilterBarSection from '@/components/all_safaris/filter-bar-section/filterbar'
 import { useFilterStore } from '@/store/filterstore'
 import { extractFilterOptions } from '@/constants/extracthelper'
 import { useUserStore } from '@/store/userstore'
-
+import type { NextApiRequest, NextApiResponse } from "next"
 
 const SafarisContent = () => {
   const isAuthenticated = useUserStore(state => state.isAuthenticated)
@@ -32,16 +31,19 @@ const SafarisContent = () => {
       page: currentPage
     }
     const response = await baseInstance.get('/itineraries', { params: apiParams })
+    console.log(response.data)
     return response.data
   }
 
-  const { data: allSafaris, isLoading, error } = useQuery({
-    queryKey: ['allSafaris', params, currentPage], // Include currentPage in query key
+  const { data: allSafaris, isLoading, error } = useQuery<ListItineraryProp>({
+    queryKey: ['allSafaris', params, currentPage],
     queryFn: handleFetch,
     staleTime: 1000 * 60 * 30,
     gcTime: 1000 * 60 * 35,
   })
 
+  console.log(allSafaris)
+  
   // Get filter values and actions from store
   const {
     location,
@@ -64,26 +66,25 @@ const SafarisContent = () => {
   const filteredItineraries = useMemo(() => {
     if (!allSafaris?.itineraries) return []
 
-    return allSafaris.itineraries.filter((itinerary: Itinerary) => {
+    return allSafaris.itineraries.filter((itinerary: ItineraryProp) => {
+      // Match location
       const matchesLocation = location
         ? itinerary.location?.toLowerCase().includes(location.toLowerCase())
         : true
 
+      // Match accommodation type
       const matchesType = accommodationType
         ? itinerary.accommodation === accommodationType
         : true
 
+      // Match days (itinerary.days is an array, so check its length)
       const matchesDays = days
-        ? (Array.isArray(itinerary.days)
-          ? itinerary.days.length === days
-          : itinerary.days === days)
+        ? itinerary.days.length === days
         : true
 
-      const passes = matchesLocation && matchesType && matchesDays
-
-      return passes
+      return matchesLocation && matchesType && matchesDays
     })
-  }, [allSafaris?.itineraries, location, accommodationType, days, currency])
+  }, [allSafaris?.itineraries, location, accommodationType, days])
 
   // Function to handle page navigation
   const handlePageChange = (page: number) => {
@@ -156,7 +157,8 @@ const SafarisContent = () => {
       {/* Results section */}
       <div className='alltours grid md:grid-cols-2 xl:grid-cols-5 gap-4 mb-5 ml-5 mr-5 xl:mr-5'>
         {filteredItineraries && filteredItineraries.length > 0 ? (
-          filteredItineraries.map((itinerary: Itinerary) =>
+          filteredItineraries.map((itinerary: ItineraryProp) => 
+            
             <ShowCaseCards key={itinerary.id} {...itinerary} />
           )
         ) : (
@@ -254,7 +256,7 @@ const SafarisContent = () => {
 }
 
 // Main component wrapped with Suspense
-const SafarisPage = () => {
+const SafarisPage = (req: NextApiRequest, res: NextApiResponse) => {
   return (
     <Suspense fallback={
       <div className="flex justify-center items-center min-h-screen">
