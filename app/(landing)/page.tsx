@@ -16,7 +16,7 @@ const Landing = () => {
 
   const params = useParams()
   const handleFetch = async () => {
-    const response = await baseInstance.get('/itineraries', { params })
+    const response = await baseInstance.get('/itineraries/', { params })
     return response.data
   }
 

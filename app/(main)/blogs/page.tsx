@@ -20,7 +20,8 @@ const TravelGuides = () => {
             await new Promise(resolve => setTimeout(resolve, delay_Ms))
         }
 
-        const response = await baseInstance.get('/blogs', { params })
+        const response = await baseInstance.get('/blogs/', { params })
+        // console.log(response.data)
         return response.data
     }
 

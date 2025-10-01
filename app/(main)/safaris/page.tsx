@@ -29,7 +29,7 @@ const SafarisContent = () => {
       ...params,
       page: currentPage
     }
-    const response = await baseInstance.get('/itineraries', { params: apiParams })
+    const response = await baseInstance.get('/itineraries/', { params: apiParams })
     console.log(response.data)
     return response.data
   }

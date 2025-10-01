@@ -19,35 +19,6 @@ baseInstance.interceptors.request.use(
     }
 )
 
-// baseInstance.interceptors.response.use(
-//     (response) => response,
-
-//     async (error) => {
-//         const originalRequest = error.config;
-//         if (error.response.status === 401 && !originalRequest._retry) {
-//             originalRequest._retry = true;
-//             const refreshToken = useUserStore.getState().refreshToken;
-//             try {
-//                 const res = await baseInstance.post("/user/auth/refresh", { refresh_token: refreshToken });
-//                 useUserStore.getState().setUser(
-//                     res.data.id,
-//                     res.data.name,
-//                     res.data.email,
-//                     res.data.photo,
-//                     res.data.access_token,
-//                     res.data.refresh_token
-//                 );
-//                 return baseInstance(originalRequest);
-//             } catch (err) {
-//                 useUserStore.getState().setNullUser();
-//                 return Promise.reject(err);
-//             }
-//         } else {
-//             useUserStore.getState().setNullUser();
-//         }
-//         return Promise.reject(error);
-//     }
-// )
 
 baseInstance.interceptors.response.use(
     (response) => response,

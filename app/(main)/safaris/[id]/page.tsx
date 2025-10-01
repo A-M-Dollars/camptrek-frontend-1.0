@@ -239,14 +239,14 @@ const Individual = () => {
 
             case 'Trip Itinerary':
                 return (
-                    <div className="h-screen">
+                    <div>
                         {individualPackage?.days && individualPackage?.days.length > 0 ? (
                             individualPackage.days.map((day) => (
                                 <div className="xl:pl-50 xl:pr-50" key={day.day_number}>
                                     <Accordion
                                         type="single"
                                         collapsible
-                                        className="w-full border-2 p-3 rounded-sm justify-center"
+                                        className="w-full border-2 p-3 mb-1 rounded-sm justify-center"
                                         defaultValue="item-1"
                                     >
                                         <AccordionItem value="item-1">
