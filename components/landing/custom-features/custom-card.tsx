@@ -13,7 +13,7 @@ const CustomCard = ({ images, title, location, duration, price, discount, id }: 
     }
 
     return (
-        <div onClick={handleClick} className='cursor-pointer border border-gray-500 md:w-[10cm]'>
+        <div onClick={handleClick} className='flex-wrap h-full cursor-pointer border border-gray-500 md:w-[10cm]'>
             <div className="relative bg-cover bg-center h-[258px] w-full"
                 style={{ backgroundImage: `url(${images[0].image.url})` }}>
                 <div className="absolute top-0 right-0 m-2">

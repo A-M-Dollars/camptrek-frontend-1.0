@@ -33,7 +33,7 @@ const CustomCarousel: React.FC<CustomCarouselProps> = ({ children }) => {
           {React.Children.map(children, (child, index) => (
             <div
               key={index}
-              className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_25%] px-2"
+              className="px-2"
             >
               {child}
             </div>

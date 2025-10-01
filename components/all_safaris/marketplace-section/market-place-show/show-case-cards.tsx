@@ -36,7 +36,7 @@ const ShowCaseCards = ({ id, discount, title, location, duration, price, images,
     }
 
     return (
-        <div onClick={handleClick} className='border mt-4 cursor-pointer'>
+        <div onClick={handleClick} className='flex-wrap h-full border mt-4 cursor-pointer'>
              <div className="relative bg-cover bg-center h-[258px] w-full"
                 style={{ backgroundImage: `url(${images[0].image.url})` }}>
                 <div className="absolute top-0 right-0 m-2">
