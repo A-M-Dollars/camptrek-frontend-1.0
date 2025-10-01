@@ -135,8 +135,6 @@ const SafarisContent = () => {
   if (error) {
     return (
       <div className='text-red-500 p-4'>
-        <h2>Error loading safaris</h2>
-        <p>{error?.message || 'Unknown error occurred'}</p>
         <CompassLoader/>
       </div>
     )
