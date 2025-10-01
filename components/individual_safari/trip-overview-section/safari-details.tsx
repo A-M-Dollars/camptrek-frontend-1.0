@@ -1,23 +1,32 @@
 import React from 'react'
 import { landing, takeoff, fix, accomodation, driver } from '@/public/svgs/svgs-file'
-import { Itinerary } from '@/constants/itinerary'
+import { ItineraryProp } from '@/constants/itinerary'
 
 
 type SafariDetailsProps = {
-    title:  Itinerary['title'];
-    arrival_city: Itinerary['arrival_city'];
-    departure_city: Itinerary['departure_city'];
-    overview: Itinerary['overview'];
-    tags: Itinerary['tags'];
+    title: ItineraryProp['title'];
+    arrival_city: ItineraryProp['arrival_city'];
+    departure_city: ItineraryProp['departure_city'];
+    overview: ItineraryProp['overview'];
+    tags: ItineraryProp['tags'];
 }
 
 
-const SafariDetails = ({title, arrival_city, departure_city, overview,tags }: SafariDetailsProps) => {
+const SafariDetails = ({ title, arrival_city, departure_city, overview, tags }: SafariDetailsProps) => {
 
     return (
         <div>
             <div className='tags flex flex-row font-light text-[12px] opacity-75 mb-2'>
-                <p className='uppercase' >{tags}</p>
+                <p className='uppercase'>
+                    {tags.length > 0 ? (
+                        tags.map((tagObj, idx) => (
+                            <span key={idx} className="mr-2">{tagObj.item}</span>
+                        ))
+                    ) : (
+                        <span>No tags</span>
+                    )
+                }
+                </p>
             </div>
             <div className='title font-semibold text-[20px] mb-4'>
                 <h1>
