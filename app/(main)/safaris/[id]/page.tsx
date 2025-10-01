@@ -227,7 +227,7 @@ const Individual = () => {
                         </div>
                         <div className='right w-full mt-2 xl:mt-0'>
                             <SafariDetails
-                                tags={individualPackage?.tags?.map(tag => tag.item) ?? []}
+                                tags={individualPackage?.tags ?? []}
                                 title={individualPackage?.title ?? ''}
                                 arrival_city={individualPackage?.arrival_city ?? ''}
                                 departure_city={individualPackage?.departure_city ?? ''}
@@ -330,7 +330,7 @@ const Individual = () => {
                         </div>
                         <div className='right w-full'>
                             <SafariDetails
-                                tags={individualPackage?.tags?.map(tag => tag.item) ?? []}
+                                tags={individualPackage?.tags ?? []}
                                 title={individualPackage?.title ?? ''}
                                 arrival_city={individualPackage?.arrival_city ?? ''}
                                 departure_city={individualPackage?.departure_city ?? ''}
