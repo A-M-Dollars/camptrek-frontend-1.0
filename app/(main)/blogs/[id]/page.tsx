@@ -22,7 +22,7 @@ const IndividualBlogs = () => {
   const id = params.id
 
   const handleFetch = async (id: string) => {
-    const response = await baseInstance.get(`/blogs/${id}`)
+    const response = await baseInstance.get(`/blogs/${id}/`)
     return response.data
   }
 
