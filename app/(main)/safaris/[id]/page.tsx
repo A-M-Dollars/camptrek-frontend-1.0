@@ -263,12 +263,13 @@ const Individual = () => {
                                                 <div className="accomodation">
                                                     {day.hotel_detail && day.hotel_detail.images.length > 0 ? (
                                                         <Carousel opts={{ align: "start" }} className="w-full relative">
-                                                            <h1 className="font-medium text-base mt-2 mb-2 ml-1" >Accomodation</h1>
-                                                            <div className="mb-2 text-blue-600 ml-1 font-medium text-base capitalize">
-                                                                {/* <p>
-                                                                    {day.hotel_detail.name}
-                                                                </p> */}
-                                                                <a href={day.hotel_detail.url}>{day.hotel_detail.name}</a>
+                                                            <div className="flex gap-1 font-medium mt-2 mb-2 ml-1">
+                                                                <h1>Accomodation:</h1>
+                                                                <div className="text-blue-600">
+                                                                    <h1>
+                                                                        <a href={day.hotel_detail.url}>{day.hotel_detail.name}</a>
+                                                                    </h1>
+                                                                </div>
                                                             </div>
                                                             <CarouselContent>
                                                                 {day.hotel_detail.images.map((imageWrapper, idx) => (
