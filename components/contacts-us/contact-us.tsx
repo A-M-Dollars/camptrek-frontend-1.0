@@ -25,7 +25,7 @@ const ContactForm = () => {
 
     try {
       // Send the form data in the request body
-      const res = await baseInstance.post('/customer-inquiry', formData);
+      const res = await baseInstance.post('/customer-inquiry/', formData);
       
       // Check for successful response (status 200-299)
       if (res.status >= 200 && res.status < 300) {
