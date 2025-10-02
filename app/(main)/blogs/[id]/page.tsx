@@ -85,18 +85,25 @@ const IndividualBlogs = () => {
 
   return (
     <div className='overflow-x-hidden'>
-      <article className="max-w-3xl mx-auto p-6">
-        <h1 className="text-3xl font-bold mb-4 leading-tight">{individualBlog.title}</h1>
+      <article className="max-w-4xl mx-auto p-6">
+        <h1 className="text-4xl font-bold mb-4 leading-tight">{individualBlog.title}</h1>
 
         <div className='flex gap-4 items-center mb-6'>
           <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-            <span className="text-white font-semibold text-sm">
-              {individualBlog.author_name?.charAt(0).toUpperCase()}
+            <span className="text-white font-bold text-xl">
+              {individualBlog.author?.charAt(0).toUpperCase()}
             </span>
           </div>
           <div>
-            <h2 className='text-[14px] font-medium text-gray-800'>{individualBlog.author_name}</h2>
-            <p className='opacity-70 text-[12px] text-gray-600'>
+            <h2 className='text-[14px] text-gray-800 '>{individualBlog.author} 
+              <span className='ml-2'>
+                |
+              </span>
+              <span className='ml-2 text-gray-600 font-light' >
+                Camptrek Safaris
+              </span>
+            </h2>
+            <p className='opacity-70 text-[12px] text-gray-600 font-light'>
               Posted {new Date(individualBlog.created_at).toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'long',
@@ -106,7 +113,7 @@ const IndividualBlogs = () => {
           </div>
         </div>
 
-        <div className="w-full h-96 mb-6 rounded-lg overflow-hidden shadow-lg">
+        <div className="w-full h-96 mb-6 overflow-hidden shadow-lg">
           <img
             className='object-cover object-center w-full h-full hover:scale-105 transition-transform duration-300'
             src={individualBlog.image_url}
@@ -116,13 +123,28 @@ const IndividualBlogs = () => {
 
         <div className="prose max-w-none">
           <div className='py-4'>
-            <div className='text-gray-700 leading-relaxed whitespace-pre-line text-[16px] line-height-7'>
+            <div className='text-gray-700 font-light leading-relaxed whitespace-pre-line text-[16px] line-height-7'>
               {individualBlog.content}
             </div>
           </div>
         </div>
 
-        <hr className="mt-8 border-gray-200" />
+
+        {
+          individualBlog?.sections && individualBlog.sections.length > 0 ?
+            individualBlog.sections.map((section: any, idx: number) => (
+              <div key={idx} className="my-6">
+                <img
+                  className='object-cover mb-6 object-center w-full h-full hover:scale-105 transition-transform duration-300'
+                  src={section.image_url}
+                  alt='Article cover image'
+                />
+                <h2 className="text-xl font-semibold mb-2">{section.title}</h2>
+                <p className="text-gray-700 font-light leading-relaxed whitespace-pre-line text-[16px] line-height-7">{section.content}</p>
+
+              </div>
+            )) : null
+        }
       </article>
     </div>
   )
