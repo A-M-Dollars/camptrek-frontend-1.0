@@ -215,7 +215,7 @@ const TripCostForm = ({ adultPrice, kidsPrice, costExcludes, costIncludes, safar
       const response = await baseInstance.post('/customer-inquiry/trip-cost-submittion', newPayload);
 
       if (response.status === 201) {
-        router.push('/contacts') // ✅ Fixed: Using router from component level
+        router.push('/safaris') // ✅ Fixed: Using router from component level
       }
     } catch (error: any) {
 
