@@ -221,7 +221,7 @@ const Individual = () => {
         switch (activeTab) {
             case 'Trip Overview':
                 return (
-                    <div className='xl:grid xl:grid-cols-2 xl:gap-6 mb-10'>
+                    <div className='xl:grid xl:grid-cols-2 xl:gap-6 mb-10 mt-10'>
                         <div className='left w-full'>
                             <ImageShowcase images={individualPackage?.images ?? []} map={individualPackage?.map as ItineraryProp['map']} />
                         </div>

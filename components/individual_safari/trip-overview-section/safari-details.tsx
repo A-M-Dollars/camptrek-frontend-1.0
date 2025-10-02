@@ -20,7 +20,7 @@ const SafariDetails = ({ title, arrival_city, departure_city, overview, tags }: 
                 <p className='uppercase'>
                     {tags.length > 0 ? (
                         tags.map((tagObj, idx) => (
-                            <span key={idx} className="mr-2">{tagObj.item}</span>
+                            <span key={idx} className="mr-2 text-blue-600 font-medium mb-4">{tagObj.item} |</span>
                         ))
                     ) : (
                         <span>No tags</span>
