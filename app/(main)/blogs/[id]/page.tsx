@@ -33,6 +33,8 @@ const IndividualBlogs = () => {
     gcTime: 1000 * 60 * 35,
   })
 
+  console.log(individualBlog)
+
   if (isLoading) {
     return <FloatingCardsLoader />;
   }
