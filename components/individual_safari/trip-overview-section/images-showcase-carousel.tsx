@@ -43,7 +43,7 @@ const ImageShowcase = ({ images, map, isLoading, error }: ImageShowCaseProp) => 
     return (
         <div>
             {/* Main Image / Map */}
-            <div className="relative w-full h-[250px] md:h-[515px] xl:h-[515px] mb-1 overflow-hidden shadow-lg">
+            <div className="relative w-full h-[250px] md:h-[515px] xl:h-[615px] mb-1 overflow-hidden shadow-lg">
                 {map && selectedIndex === 0 ? (
                     // Show the map if it's the first slide
                     <Image

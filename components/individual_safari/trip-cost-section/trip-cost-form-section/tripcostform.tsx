@@ -12,6 +12,8 @@ import { tripCostSummaryStore } from '@/store/tripsummarystore'
 import { smile, sad } from '@/public/svgs/svgs-file'
 import { baseInstance } from '@/constants/apis';
 import { useRouter } from 'next/navigation';
+import { toast } from "sonner"
+
 
 type TripCostFormProps = {
   safariPackageTitle: string;
@@ -190,7 +192,7 @@ const TripCostForm = ({ adultPrice, kidsPrice, costExcludes, costIncludes, safar
       currency: data.currency
     }
 
-      // payload expects
+    // payload expects
 
     const newPayload = {
       itinerary_name: safariPackageTitle,
@@ -215,6 +217,14 @@ const TripCostForm = ({ adultPrice, kidsPrice, costExcludes, costIncludes, safar
       const response = await baseInstance.post('/customer-inquiry/trip-cost-submittion', newPayload);
 
       if (response.status === 201) {
+        // toast.success("Trip cost summary has been submitted successfully!");
+        toast(
+          <div>
+            <p>
+              Trip cost summary has been submitted successfully! ✅ Check your email
+            </p>
+          </div>
+        )
         router.push('/safaris') // ✅ Fixed: Using router from component level
       }
     } catch (error: any) {

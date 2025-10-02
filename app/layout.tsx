@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import ReactQueryProvider from "@/providers/ReactQueryProvider";
 import { Inter } from 'next/font/google'
+import { Toaster } from "@/components/ui/sonner"
 import "./globals.css";
 
 const inter = Inter({ subsets: ['latin'] })
@@ -38,6 +39,7 @@ export default function RootLayout({
           className={inter.className}
         >
           <ReactQueryProvider>{children}</ReactQueryProvider>
+          <Toaster position="top-center" />
         </body>
       </GoogleOAuthProvider>
     </html>
