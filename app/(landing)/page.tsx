@@ -20,7 +20,7 @@ const Landing = () => {
     return response.data
   }
 
-  const { data: tours } = useQuery({
+  const { data: tours, isLoading } = useQuery({
     queryKey: ['toursList', params],
     queryFn: handleFetch,
     staleTime: 1000 * 60 * 30,
@@ -33,6 +33,16 @@ const Landing = () => {
     aboutRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  if (isLoading) {
+    return (
+      <div className="fixed inset-0 bg-black flex justify-center items-center z-50">
+        <div className="flex flex-col items-center gap-4">
+          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-[#FD6D0D]"></div>
+          <p className="text-white text-lg mt-4">Camptrek Safaris loading .....</p>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className='overflow-x-hidden'>

@@ -25,11 +25,7 @@ const CustomCard = ({ images, title, location, duration, price, discount, id }: 
 
             <div className='justify-between items-center p-2 mx-5'>
                 <div className="mr-6 xl:mr-6 xl:flex xl:flex-row items-center xl:justify-between w-full">
-                    <p className='xl:mr-4'>{title}</p>
-                    {/* <div className="flex flex-row gap-1">
-                        <span>{ratingStar}</span>
-                        <p className="font-light">{rating}</p>
-                    </div> */}
+                    <p className='xl:mr-4 h-[20px] mb-10'>{title}</p>
                 </div>
                 <p className='text-gray-500 text-[14px]'>{location}</p>
                 <div className='flex flex-row gap-2 items-center text-[14px] mt-3'>
