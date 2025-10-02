@@ -89,7 +89,7 @@ const IndividualBlogs = () => {
         <h1 className="text-4xl font-bold mb-4 leading-tight">{individualBlog.title}</h1>
 
         <div className='flex gap-4 items-center mb-6'>
-          <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+          <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
             <span className="text-white font-bold text-xl">
               {individualBlog.author?.charAt(0).toUpperCase()}
             </span>
