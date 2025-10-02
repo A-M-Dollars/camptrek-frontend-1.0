@@ -49,7 +49,6 @@ const IndividualBlogs = () => {
             </svg>
           </div>
           <h3 className="text-lg font-semibold text-gray-800 mb-2">Something went wrong</h3>
-          <p className="text-gray-600 mb-4">Error: {error.message}</p>
           <button
             onClick={() => window.location.reload()}
             className="px-4 py-2 bg-[#ED1C24] text-white uppercase text-[12px] w-[200px]"
