@@ -26,7 +26,7 @@ const aboutUsInfo = [
     {
         title: "Our Commitment to You",
         bgColor: "#ffff",
-        context: `Safety is not just a checklist—it’s a promise. Research shows that travelers who feel secure are three times more likely to describe their trip as “life-changing.” Our mission is to make your safari both memorable and safe by combining expert guidance, proven safety measures, and constant support. With Camptrek Safaris, you can embrace the adventure knowing you are in safe hands.`
+        context: `Safety is not just a checklist—it’s a promise. Research shows that travelers who feel secure are three times more likely to describe their trip as ‘life-changing.’ Our mission is to make your safari both memorable and safe by combining expert guidance, proven safety measures, financial transparency, and constant support. With Camptrek Safaris, you can embrace the adventure knowing your well-being and your money are in safe hands`
     }
 ]
 
