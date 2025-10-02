@@ -11,6 +11,14 @@ import e3 from '@/public/about-us/team/e3b.png'
 import e4 from '@/public/about-us/team/e4.jpg'
 
 const team = [
+  { img: john, name: "Papa John", role: 'Director' },
+  { img: e1, name: 'Augustine Mwaura', role: 'Tour Consultant' },
+  { img: e2, name: 'Margaret Nyambura', role: 'Tour Consultant' },
+  { img: e3, name: 'Rose Khasiala', role: 'Tour Consultant' },
+  { img: e4, name: 'Lucy Kagure', role: 'Tour Consultant' },
+]
+
+const team2 = [
   { img: e1, name: 'Augustine Mwaura', role: 'Tour Consultant' },
   { img: e2, name: 'Margaret Nyambura', role: 'Tour Consultant' },
   { img: e3, name: 'Rose Khasiala', role: 'Tour Consultant' },
@@ -80,7 +88,7 @@ const Ourstory = () => {
               ensures your adventure is seamless from start to finish.
             </p>
           </div>
-          <div className='border w-[385px]'>
+          <div className=' w-[385px]'>
             <div className='xl:hidden xl:flex xl:flex-row xl:place-items-center 
             mb-10 mt-10 xl:mb-20 ml-10 mr-10 xl:ml-0 xl:mr-0
             '>
@@ -92,7 +100,7 @@ const Ourstory = () => {
               </h1>
               <span className='xl:hidden xl:mr-5'>{dash}</span>
             </div>
-            <div className='ml-10 mr-10 xl:ml-0 xl:mr-0'>
+            <div className='hidden xl:block ml-10 mr-10 xl:ml-0 xl:mr-0'>
               <div className='h-[316px] w-[300px] xl:w-[383px] overflow-hidden'>
                 <Image
                   src={john} alt='CAMPTREK DIRECTOR'
@@ -107,22 +115,47 @@ const Ourstory = () => {
           </div>
         </div>
         <div className='xl:flex xl:flex-row xl:gap-30 xl:place-items-center'>
-          <div className='border w-[385px]'>
+          <div className='xl:border w-[385px]'>
             {/* Header - Keep outside carousel or move to parent component */}
-            <div className='xl:hidden xl:flex xl:flex-row xl:place-items-center
-            mb-10 mt-10 xl:mb-20 ml-10 mr-10 xl:ml-0 xl:mr-0'>
-              <span className='xl:hidden xl:mr-5'>{dash}</span>
-            </div>
 
             {/* Carousel Container */}
-            <div className='ml-10 mr-10 xl:ml-0 xl:mr-0'>
+            <div className='xl:hidden ml-10 mr-10 xl:ml-0 xl:mr-0'>
               <Carousel className="w-full h-full relative">
                 <CarouselContent>
                   {team.map((member, idx) => (
                     <CarouselItem key={idx}>
                       {/* Individual Team Member Card */}
-                      <div className='ml-10 mr-0 xl:ml-0 xl:mr-0'>
-                        <div className='h-[316px] w-[300px] xl:w-[383px] overflow-hidden'>
+                      <div className='ml-0 mr-0 xl:ml-0 xl:mr-0'>
+                        <div className='h-[316px] w-[330px] xl:w-[395px] overflow-hidden'>
+                          <Image
+                            src={member.img}
+                            alt={member.name}
+                            style={{ objectFit: 'cover' }}
+                            className='w-full h-full'
+                          />
+                        </div>
+                        <div className='p-5'>
+                          <p className='text-[14px] mb-1'>{member.name}</p>
+                          <p className='text-gray-600 text-[12px] uppercase'>{member.role}</p>
+                        </div>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-2 mt-20 top-1/2 -translate-y-1/2" />
+                <CarouselNext className="right-2 mt-20 top-1/2 -translate-y-1/2" />
+              </Carousel>
+            </div>
+
+            {/* Carousel Container */}
+            <div className='hidden xl:block ml-10 mr-10 xl:ml-0 xl:mr-0'>
+              <Carousel className="w-full h-full relative">
+                <CarouselContent>
+                  {team2.map((member, idx) => (
+                    <CarouselItem key={idx}>
+                      {/* Individual Team Member Card */}
+                      <div className='ml-0 mr-0 xl:ml-0 xl:mr-0'>
+                        <div className='h-[316px] w-[330px] xl:w-[395px] overflow-hidden'>
                           <Image
                             src={member.img}
                             alt={member.name}
@@ -143,8 +176,8 @@ const Ourstory = () => {
               </Carousel>
             </div>
           </div>
-          <div className='hidden xl:block'>
-            <p className='xl:font-light xl:text-[12px] xl:uppercase xl:mb-10 mb-5
+          <div className=''>
+            <p className=' xl:font-light xl:text-[12px] xl:uppercase xl:mb-10 mb-5
             text-gray-600 xl:text-black text-[14px] ml-10 mr-10 xl:ml-0 xl:mr-0
             '>
               At the heart of Camptrek Safaris is a passionate team of professionals <br /> who bring our vision to life.
@@ -153,7 +186,7 @@ const Ourstory = () => {
               in <br />  creating unforgettable journeys. Their expertise, warmth, and commitment ensure <br /> that every guest feels
               safe, cared for, and inspired throughout their adventure.
             </p>
-            <p className='xl:font-light xl:text-[12px] xl:uppercase
+            <p className='hidden xl:block xl:font-light xl:text-[12px] xl:uppercase
             text-gray-600 xl:text-black text-[14px] ml-10 mr-10 xl:ml-0 xl:mr-0 mb-5 xl:mb-0
             '>
               Beyond their professional skills, our team embodies a spirit of collaboration and hospitality.

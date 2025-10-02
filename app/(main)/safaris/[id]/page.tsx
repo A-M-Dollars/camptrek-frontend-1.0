@@ -24,7 +24,7 @@ import ImageShowcase from '@/components/individual_safari/trip-overview-section/
 import ItineraryGoogleImage from '@/components/individual_safari/trip-itinerary-section/itinerary-google-map'
 import { useUserStore } from '@/store/userstore'
 import { useQuery } from "@tanstack/react-query"
-import { arrowButton, arrowButton2 } from "@/public/svgs/svgs-file"
+
 
 const Individual = () => {
     const isAuthenticated = useUserStore(state => state.isAuthenticated)

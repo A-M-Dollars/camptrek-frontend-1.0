@@ -12,7 +12,7 @@ import { useQuery } from '@tanstack/react-query'
 function AboutCamptrek() {
 
   const handleFetch = async () => {
-    const response = await baseInstance.get('/blogs')
+    const response = await baseInstance.get('/blogs/')
     return response.data
   }
 
