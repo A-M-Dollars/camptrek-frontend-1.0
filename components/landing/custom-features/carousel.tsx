@@ -1,9 +1,7 @@
 'use client'
-
 import React, { useCallback } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import { previousButton, nextButton } from '@/public/svgs/svgs-file'
-
 
 interface CustomCarouselProps {
   children: React.ReactNode
@@ -27,13 +25,13 @@ const CustomCarousel: React.FC<CustomCarouselProps> = ({ children }) => {
         {previousButton}
       </button>
 
-      <div className="overflow-hidden ml-10 mr-10" ref={emblaRef}>
+      <div className="overflow-hidden ml-2 mr-2" ref={emblaRef}>
         {/* Embla container */}
         <div className="flex">
           {React.Children.map(children, (child, index) => (
             <div
               key={index}
-              className="px-2"
+              className="flex-shrink-0 pl-2 min-w-[180px] sm:min-w-[320px] md:min-w-[10cm]"
             >
               {child}
             </div>

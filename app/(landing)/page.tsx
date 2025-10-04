@@ -52,8 +52,8 @@ const Landing = () => {
         />
       </div>
       {/* everything below is for the tour section */}
-      <div ref={aboutRef} className="overflow-x-hidden xl:brightness-100 bg-[black] text-white pb-10 px-4 py-5 xl:py-10">
-        <div className="ml-[15px] xl:ml-[55px]">
+      <div ref={aboutRef} className="overflow-x-hidden xl:brightness-100 bg-[black] text-white pb-10 px-[0.5] py-5 xl:py-10">
+        <div className="ml-[10px] xl:ml-[55px]">
           <div className="mb-10 xl:ml-10">
             <h1 className="font-semibold text-[#FD6D0D] text-[24px] md:text-[32px]">POPULAR SAFARI ITINERARIES</h1>
             <div className="text-[14px] mt-4 font-light">

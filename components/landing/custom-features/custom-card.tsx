@@ -13,7 +13,7 @@ const CustomCard = ({ images, title, location, duration, price, discount, id }: 
     }
 
     return (
-        <div onClick={handleClick} className='flex-wrap h-full cursor-pointer border border-gray-500 md:w-[10cm]'>
+        <div onClick={handleClick} className='flex-wrap h-full cursor-pointer border border-gray-500 w-[8cm] md:w-[10cm]'>
             <div className="relative bg-cover bg-center h-[258px] w-full"
                 style={{ backgroundImage: `url(${images[0].image.url})` }}>
                 <div className="absolute top-0 right-0 m-2">
@@ -24,14 +24,22 @@ const CustomCard = ({ images, title, location, duration, price, discount, id }: 
             </div>
 
             <div className='justify-between items-center p-2 mx-5'>
-                <div className="mr-6 xl:mr-6 xl:flex xl:flex-row items-center xl:justify-between w-full">
-                    <p className='xl:mr-4 h-[20px] mb-10'>{title}</p>
+                <div className="mr-6 xl:mr-6 xl:flex xl:flex-row items-center xl:justify-between w-full mb-15">
+                    <p className='xl:mr-4 h-[20px] '>{title}</p>
                 </div>
                 <p className='text-gray-500 text-[14px]'>{location}</p>
-                <div className='flex flex-row gap-2 items-center text-[14px] mt-3'>
-                    {clockIcon}
-                    <p>{duration} Days</p>
+                <div className='flex flex-row gap-2 items-center text-[14px] mt-0 justify-between'>
+                    <div className='flex flex-row gap-2 items-center text-[14px] mt-1'>
+                        {clockIcon}
+                        <p>{duration} Days</p>
+                    </div>
+
+                    {/* <div className='flex flex-row gap-1 items-center text-[14px] mt-3'>
+                        <p>{ratingStar}</p>
+                        <p className='text-[18px] font-light mt-1'>5.0</p>
+                    </div> */}
                 </div>
+
             </div>
             <hr className='m-3 border-gray-500' />
             <div className='flex flex-row justify-between items-center p-4'>
