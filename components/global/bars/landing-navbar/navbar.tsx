@@ -103,25 +103,25 @@ function Navbar() {
           <div className='flex gap-12 items-center font-light'>
             <Link
               href={'/safaris'}
-              className='hover:text-gray-300 transition-colors duration-200 text-sm xl:text-[12px]'
+              className='hover:text-gray-300 transition-colors duration-200 text-sm xl:text-base'
             >
               SAFARIS
             </Link>
             <Link
               href={'/blogs'}
-              className='hover:text-gray-300 transition-colors duration-200 text-sm xl:text-[12px]'
+              className='hover:text-gray-300 transition-colors duration-200 text-sm xl:text-base'
             >
               TRAVEL GUIDE
             </Link>
             <Link
               href={'/about-us'}
-              className='hover:text-gray-300 transition-colors duration-200 text-sm xl:text-[12px]'
+              className='hover:text-gray-300 transition-colors duration-200 text-sm xl:text-base'
             >
               ABOUT US
             </Link>
             <Link
               href={'/contacts'}
-              className='hover:text-gray-300 transition-colors duration-200 text-sm xl:text-[12px]'
+              className='hover:text-gray-300 transition-colors duration-200 text-sm xl:text-base'
             >
               CONTACTS
             </Link>
