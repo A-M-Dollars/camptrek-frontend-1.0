@@ -33,7 +33,6 @@ const IndividualBlogs = () => {
     gcTime: 1000 * 60 * 35,
   })
 
-  console.log(individualBlog)
 
   if (isLoading) {
     return <FloatingCardsLoader />;
@@ -94,7 +93,7 @@ const IndividualBlogs = () => {
             </span>
           </div>
           <div>
-            <h2 className='text-[14px] text-gray-800 '>{individualBlog.author} 
+            <h2 className='text-[14px] text-gray-800 '>{individualBlog.author}
               <span className='ml-2'>
                 |
               </span>
@@ -133,12 +132,14 @@ const IndividualBlogs = () => {
           individualBlog?.sections && individualBlog.sections.length > 0 ?
             individualBlog.sections.map((section: any, idx: number) => (
               <div key={idx} className="my-6">
-                <img
-                  className='object-cover mb-6 object-center w-full h-full hover:scale-105 transition-transform duration-300'
+                <h2 className="text-xl font-semibold mb-4">{section.title}</h2>
+                <div className='w-full h-[500px] mt-2 mb-2'>
+                  <img
+                    className='object-cover mb-6 object-center w-full h-full hover:scale-105 transition-transform duration-300'
                   src={section.image_url}
                   alt='Article cover image'
                 />
-                <h2 className="text-xl font-semibold mb-2">{section.title}</h2>
+                </div>
                 <p className="text-gray-700 font-light leading-relaxed whitespace-pre-line text-[16px] line-height-7">{section.content}</p>
 
               </div>

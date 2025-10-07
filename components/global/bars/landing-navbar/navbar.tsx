@@ -103,25 +103,25 @@ function Navbar() {
           <div className='flex gap-12 items-center font-light'>
             <Link
               href={'/safaris'}
-              className='hover:text-gray-300 transition-colors duration-200 text-sm xl:text-base'
+              className='hover:text-gray-300 transition-colors duration-200 text-sm xl:text-[12px]'
             >
               SAFARIS
             </Link>
             <Link
               href={'/blogs'}
-              className='hover:text-gray-300 transition-colors duration-200 text-sm xl:text-base'
+              className='hover:text-gray-300 transition-colors duration-200 text-sm xl:text-[12px]'
             >
               TRAVEL GUIDE
             </Link>
             <Link
               href={'/about-us'}
-              className='hover:text-gray-300 transition-colors duration-200 text-sm xl:text-base'
+              className='hover:text-gray-300 transition-colors duration-200 text-sm xl:text-[12px]'
             >
               ABOUT US
             </Link>
             <Link
               href={'/contacts'}
-              className='hover:text-gray-300 transition-colors duration-200 text-sm xl:text-base'
+              className='hover:text-gray-300 transition-colors duration-200 text-sm xl:text-[12px]'
             >
               CONTACTS
             </Link>
@@ -164,21 +164,21 @@ function Navbar() {
             </Link> */}
             <Link
               href={'/blogs'}
-              className='block py-2 hover:text-gray-300 transition-colors duration-200 text-base font-light'
+              className='block py-2 hover:text-gray-300 transition-colors duration-200 text-[12px] font-light'
               onClick={closeMobileMenu}
             >
               TRAVEL GUIDE
             </Link>
             <Link
               href={'/about-us'}
-              className='block py-2 hover:text-gray-300 transition-colors duration-200 text-base font-light'
+              className='block py-2 hover:text-gray-300 transition-colors duration-200 text-[12px] font-light'
               onClick={closeMobileMenu}
             >
               ABOUT US
             </Link>
             <Link
               href={'/contacts'}
-              className='block py-2 hover:text-gray-300 transition-colors duration-200 text-base font-light'
+              className='block py-2 hover:text-gray-300 transition-colors duration-200 text-[12px] font-light'
               onClick={closeMobileMenu}
             >
               CONTACTS

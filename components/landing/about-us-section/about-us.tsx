@@ -58,7 +58,7 @@ function Aboutus() {
                                                     <p className='font-semibold'>Expert Guides</p>
                                                     <p>Trained in wildlife behavior, first aid, and emergency response.</p>
                                                 </li> */}
-                                                <p className='text-[12px] text-gray-600 text-pretty'>{item.context}</p>
+                                                <p className='text-[14px] text-black text-pretty'>{item.context}</p>
                                             </div>
                                         </div>
                                     </div>

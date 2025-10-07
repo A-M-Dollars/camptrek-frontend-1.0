@@ -30,7 +30,6 @@ const SafarisContent = () => {
       page: currentPage
     }
     const response = await baseInstance.get('/itineraries/', { params: apiParams })
-    console.log(response.data)
     return response.data
   }
 
@@ -41,7 +40,6 @@ const SafarisContent = () => {
     gcTime: 1000 * 60 * 35,
   })
 
-  console.log(allSafaris)
   
   // Get filter values and actions from store
   const {
