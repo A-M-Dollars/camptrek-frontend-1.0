@@ -49,7 +49,7 @@ const ShowCaseCards = ({ id, discount, title, location, duration, price, images,
             <div className='justify-between items-center p-4'>
                 <div className="w-full mb-4">
                     <p className='mr-4 font-semibold text-[12px] mb-1'>{title}</p>
-                    <p className='text-[12px] opacity-[75%] font-light ' >{tripDescription}</p>
+                    <p className='text-[12px] opacity-[100%] font-light ' >{tripDescription}</p>
                 </div>
                 <p className='text-[primary] text-[12px] font-light mb-1'>{location}</p>
                 <div className='flex flex-row justify-between items-center'>

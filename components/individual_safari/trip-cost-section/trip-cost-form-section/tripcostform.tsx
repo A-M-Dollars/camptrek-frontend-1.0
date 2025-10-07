@@ -333,13 +333,13 @@ const TripCostForm = ({ adultPrice, kidsPrice, costExcludes, costIncludes, safar
                     </div>
                   </div>
 
-                  <div className='grid grid-cols-2 gap-2 items-center bg-[#D3D3D3] text-primary p-[40px] divide-x-1 divide-gray-500'>
+                  <div className='grid grid-cols-2 gap-2 bg-[#D3D3D3] text-primary p-[40px] divide-x-1 divide-gray-500'>
                     <div className='costIncludes'>
                       <h1 className='font-bold uppercase text-[12px] mb-2 pl-5'>Cost Includes</h1>
                       {costIncludes.map((includes) => (
                         <div key={includes} className='flex items-center gap-2 mb-2'>
                           <span>{smile}</span>
-                          <p className='text-[10px]'>{includes}</p>
+                          <p className='text-[12px]'>{includes}</p>
                         </div>
                       ))}
                     </div>
@@ -348,7 +348,7 @@ const TripCostForm = ({ adultPrice, kidsPrice, costExcludes, costIncludes, safar
                       {costExcludes.map((excludes, index) => (
                         <div key={`${excludes}-${index}`} className='flex items-center gap-2 mb-2'>
                           <span>{sad}</span>
-                          <p className='text-[10px]'>{excludes}</p>
+                          <p className='text-[12px]'>{excludes}</p>
                         </div>
                       ))}
                     </div>

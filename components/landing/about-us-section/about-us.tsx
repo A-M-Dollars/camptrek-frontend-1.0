@@ -54,10 +54,6 @@ function Aboutus() {
                                         <div className='ml-10'>
                                             <h2 className='text-[20px] font-semibold text-[#FD6D0D] mb-2'>{item.title}</h2>
                                             <div>
-                                                {/* <li>
-                                                    <p className='font-semibold'>Expert Guides</p>
-                                                    <p>Trained in wildlife behavior, first aid, and emergency response.</p>
-                                                </li> */}
                                                 <p className='text-[14px] text-black text-pretty'>{item.context}</p>
                                             </div>
                                         </div>

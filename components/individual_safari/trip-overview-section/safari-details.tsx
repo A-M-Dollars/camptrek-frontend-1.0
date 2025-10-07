@@ -16,7 +16,7 @@ const SafariDetails = ({ title, arrival_city, departure_city, overview, tags }: 
 
     return (
         <div>
-            <div className='tags flex flex-row font-light text-[12px] opacity-75 mb-2'>
+            <div className='tags flex flex-row font-light text-[12px] mb-2'>
                 <p className='uppercase'>
                     {tags.length > 0 ? (
                         tags.map((tagObj, idx) => (
@@ -33,7 +33,7 @@ const SafariDetails = ({ title, arrival_city, departure_city, overview, tags }: 
                     {title}
                 </h1>
             </div>
-            <div className='tripinfo flex flex-wrap gap-4 gap-y-2 font-light text-[10px] opacity-75'>
+            <div className='tripinfo flex flex-wrap gap-4 gap-y-2 font-light text-[10px] '>
                 <div className='flex flex-row gap-2 justify-between items-center'>
                     {landing}
                     <p>{arrival_city}</p>
@@ -58,7 +58,7 @@ const SafariDetails = ({ title, arrival_city, departure_city, overview, tags }: 
             <hr className='mt-6 mb-6' />
             <div className='tripsummary'>
                 <h1 className='text-[14px] font-semibold text-transform: uppercase mb-4'>Tour Overview</h1>
-                <p className='text-[12px] opacity-50'>{overview}</p>
+                <p className='text-[14px]'>{overview}</p>
             </div>
         </div >
     )

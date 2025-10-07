@@ -35,10 +35,10 @@ function TripDetails({ newAdultPrice, newKidsPrice, totalPrice, numberOfAdults, 
         {/* currency and country issue */}
         <div className='grid grid-cols-2 gap-2'>
           <div className='currency'>
-            <label className='text-[10px] titlecase pl-1 font-light'>Preferred Currency</label>
+            <label className='text-[11px] titlecase pl-1 font-regular'>Preferred Currency</label>
             <select {...register('currency')}
               className='border w-full h-[45px] opacity-75
-            placeholder: font-light titlecase text-[10px] opacity-50 p-4'
+            placeholder: font-regular titlecase text-[10px] opacity-50 p-4'
             >
               {/* {countryCodes.map((currency) => (
                 <option key={currency.country} value={currency.currency}>
@@ -53,10 +53,10 @@ function TripDetails({ newAdultPrice, newKidsPrice, totalPrice, numberOfAdults, 
             </select>
           </div>
           <div className='country'>
-            <label className='text-[10px] titlecase pl-1 font-light'>Country of Origin</label>
+            <label className='text-[11px] titlecase pl-1 font-regular'>Country of Origin</label>
             <select {...register("country")}
               className='border w-full h-[45px] opacity-75
-            placeholder: font-light titlecase text-[10px] opacity-50 p-4'
+            placeholder: font-regular titlecase text-[10px] opacity-50 p-4'
             >
               {countryCodes.map((country) => (
                 <option key={country.country} value={country.country}>
@@ -70,16 +70,16 @@ function TripDetails({ newAdultPrice, newKidsPrice, totalPrice, numberOfAdults, 
         {/* start Date */}
         <div className='grid grid-cols-2 gap-2'>
           <div>
-            <label className='text-[10px] titlecase pl-1 font-light'>Start Date</label>
+            <label className='text-[11px] titlecase pl-1 font-regular'>Start Date</label>
             <input
               type="date"
               {...register('startDate')}
               className='border w-full h-[45px] opacity-75
-            placeholder: font-light titlecase text-[10px] opacity-50 p-4'
+            placeholder: font-regular titlecase text-[11px] opacity-50 p-4'
             />
           </div>
           <div>
-            <label className='text-[10px] titlecase pl-1 font-light'>Rooms Needed</label>
+            <label className='text-[11px] titlecase pl-1 font-regular'>Rooms Needed</label>
             <input
               type="number"
               min="1"
@@ -91,7 +91,7 @@ function TripDetails({ newAdultPrice, newKidsPrice, totalPrice, numberOfAdults, 
                 min: { value: 1, message: "Rooms cannot be negative" }
               })}
               className='border w-full h-[45px] opacity-75
-            placeholder: font-light titlecase text-[10px] opacity-100 p-4'
+            placeholder: font-regular titlecase text-[11px] opacity-100 p-4'
             />
             {errors.numberOfRooms && (
               <span className="text-red-500 text-[9px] pl-1">{errors.numberOfRooms.message as string}</span>
@@ -102,7 +102,7 @@ function TripDetails({ newAdultPrice, newKidsPrice, totalPrice, numberOfAdults, 
         {/* Adults and Kids Attending */}
         <div className='grid grid-cols-2 gap-2'>
           <div>
-            <label className='text-[10px] titlecase pl-1 font-light'>Adults Attending (12+ Years)</label>
+            <label className='text-[11px] titlecase pl-1 font-regular'>Adults Attending (12+ Years)</label>
             <input
               type="number"
               min="1"
@@ -114,14 +114,14 @@ function TripDetails({ newAdultPrice, newKidsPrice, totalPrice, numberOfAdults, 
                 min: { value: 1, message: "At least 1 adult is required" }
               })}
               className='border w-full h-[45px] opacity-75
-            placeholder: font-light titlecase text-[10px] opacity-100 p-4'
+            placeholder: font-regular titlecase text-[11px] opacity-100 p-4'
             />
             {errors.numberOfAdults && (
               <span className="text-red-500 text-[9px] pl-1">{errors.numberOfAdults.message as string}</span>
             )}
           </div>
           <div>
-            <label className='text-[10px] titlecase pl-1 font-light'>Kids Attending (3-12 Years)</label>
+            <label className='text-[11px] titlecase pl-1 font-regular'>Kids Attending (3-12 Years)</label>
             <input
               type="number"
               min="0"
@@ -133,7 +133,7 @@ function TripDetails({ newAdultPrice, newKidsPrice, totalPrice, numberOfAdults, 
                 min: { value: 0, message: "Kids cannot be negative" }
               })}
               className='border w-full h-[45px] opacity-75
-            placeholder: font-light titlecase text-[10px] opacity-100 p-4'
+            placeholder: font-regular titlecase text-[11px] opacity-100 p-4'
             />
             {errors.numberOfKids && (
               <span className="text-red-500 text-[9px] pl-1">{errors.numberOfKids.message as string}</span>
@@ -187,7 +187,7 @@ function TripDetails({ newAdultPrice, newKidsPrice, totalPrice, numberOfAdults, 
               {costIncludesi.map((includes) => (
                 <div key={includes} className='flex items-center gap-2 mb-2'>
                   <span>{smile}</span>
-                  <p className='text-[10px]'>{includes}</p>
+                  <p className='text-[11px] mb-2'>{includes}</p>
                 </div>
               ))}
             </div>
@@ -196,7 +196,7 @@ function TripDetails({ newAdultPrice, newKidsPrice, totalPrice, numberOfAdults, 
               {costExcludesi.map((excludes, index) => (
                 <div key={`${excludes}-${index}`} className='flex items-center gap-2 mb-2'>
                   <span>{sad}</span>
-                  <p className='text-[10px]'>{excludes}</p>
+                  <p className='text-[11px] mb-2'>{excludes}</p>
                 </div>
               ))}
             </div>
