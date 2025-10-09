@@ -260,6 +260,36 @@ const Individual = () => {
                                                     </p>
                                                 </div>
 
+                                                <Carousel opts={{ align: "start" }} className="w-full relative">
+                                                    <div className="flex gap-1 font-medium mt-2 mb-2 ml-1">
+                                                        <h1>Day {day.day_number}'s</h1>
+                                                        <div className="text-blue-600">
+                                                            <h1>
+                                                                Related Images
+                                                            </h1>
+                                                        </div>
+                                                    </div>
+                                                    <CarouselContent>
+                                                        {day.images.map((imageWrapper, idx) => (
+                                                            <CarouselItem
+                                                                key={idx}
+                                                                className="md:basis-1/2 lg:basis-1/3 w-[150px] h-[350px]"
+                                                            >
+
+                                                                <img
+                                                                    src={imageWrapper.image.url}
+                                                                    className="w-full h-full object-cover"
+                                                                    alt={`Day ${day.day_number} image ${idx + 1}`}
+                                                                />
+
+                                                            </CarouselItem>
+                                                        ))}
+                                                    </CarouselContent>
+
+                                                    <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-sm" />
+                                                    <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-sm" />
+                                                </Carousel>
+
                                                 <div className="accomodation">
                                                     {day.hotel_detail && day.hotel_detail.images.length > 0 ? (
                                                         <Carousel opts={{ align: "start" }} className="w-full relative">

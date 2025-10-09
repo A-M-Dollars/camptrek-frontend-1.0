@@ -11,6 +11,7 @@ import { useQuery } from '@tanstack/react-query'
 import React, { useRef } from 'react'
 import { ItineraryProp} from '@/constants/itinerary'
 import Link from 'next/link'
+import Reviews from '@/components/landing/review-section/reviews'
 
 const Landing = () => {
 
@@ -88,6 +89,7 @@ const Landing = () => {
 
       {/* it ends here */}
       <Aboutus />
+      {/* <Reviews /> */}
       <Partners />
     </div>
   )
