@@ -3,6 +3,8 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import ReactQueryProvider from "@/providers/ReactQueryProvider";
 import { Inter } from 'next/font/google'
 import { Toaster } from "@/components/ui/sonner"
+import Script from "next/script";
+
 import "./globals.css";
 
 const inter = Inter({ subsets: ['latin'] })
@@ -34,6 +36,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-D4NMSSL7JY"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-D4NMSSL7JY');
+          `}
+        </Script>
+      </head>
       <GoogleOAuthProvider clientId={googleClientId}>
         <body
           className={inter.className}

@@ -89,7 +89,7 @@ const Landing = () => {
 
       {/* it ends here */}
       <Aboutus />
-      {/* <Reviews /> */}
+      <Reviews />
       <Partners />
     </div>
   )
